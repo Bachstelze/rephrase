@@ -4,7 +4,7 @@ import sqlite3
 
 def main():
     phrases = parse_phrases('as a rule |0-1| , the country |2-4| will defeat |5-5| the islamists |6-6| ; |7-7| the question is |8-10| , moderate |11-12| or |13-14| radical |15-15| . |16-16|')
-    input = 'the country will defeat'
+    input = 'question is  , moderate  or  radical'
 
     intervals = find_involved_intervals(input, phrases)
     paraphrases = get_paraphrases(intervals)
@@ -43,7 +43,7 @@ def find_involved_intervals(input, phrases):
 
     mt_out = ''
     for phrase in phrases:
-        mt_out += phrase['content'].rstrip()
+        mt_out += phrase['content']
 
     left = mt_out.index(input)
     right = left + len(input)
