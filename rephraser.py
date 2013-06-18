@@ -3,8 +3,8 @@ import sqlite3
 
 
 def main():
-    phrases = parse_phrases('as a rule |0-1| , the country |2-4| will defeat |5-5| the islamists |6-6| ; |7-7| the question is |8-10| , moderate |11-12| or |13-14| radical |15-15| . |16-16|')
-    input = 'question is  , moderate  or  radical'
+    phrases = parse_phrases('the republican authorities |0-1| were |2-2| quick |3-3| to spread |4-4| the practice |5-6| to other |7-8| states . |9-10|')
+    input = 'to spread  the practice'
 
     intervals = find_involved_intervals(input, phrases)
     paraphrases = get_paraphrases(intervals)
@@ -67,8 +67,7 @@ def get_paraphrases(intervals):
         hypotheses = []
         c.execute("select out from hypotheses where covered = '%s' order by score desc" % interval)
 
-        for i in range(0, 5):
-            row = c.fetchone()
+        for row in c.fetchall():
             hypotheses.append(row[0])
 
         partials.append(hypotheses)
@@ -76,7 +75,7 @@ def get_paraphrases(intervals):
     conn.close()
 
     paraphrases = []
-    for i in range(0, 5):
+    for i in range(0, 100):
         paraphrase = ''
         for j in range(0, len(partials)):
             paraphrase += partials[j][i] + ' '

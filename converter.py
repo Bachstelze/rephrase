@@ -3,7 +3,7 @@ import sqlite3
 
 
 def main():
-    f = open('4.graph')
+    f = open('15.graph')
     lines = f.readlines()
 
     hyps = process_lines(lines)
