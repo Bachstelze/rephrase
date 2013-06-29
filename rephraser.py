@@ -76,8 +76,9 @@ def get_paraphrases(intervals, db, n_results):
     paraphrases = []
     for i in range(0, n_results):
         paraphrase = ''
-        for j in range(0, len(partials)):
-            paraphrase += partials[j][i] + ' '
+        if len(partials) > 0:
+            for j in range(0, len(partials)):
+                paraphrase += partials[j][i] + ' '
         paraphrases.append(paraphrase)
 
     return paraphrases
