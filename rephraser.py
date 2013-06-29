@@ -1,7 +1,6 @@
 
 import sqlite3
 
-
 def rephrase(output_sentence, input, db, n_results):
     phrases = parse_phrases(output_sentence)
     intervals = find_involved_intervals(input, phrases)
@@ -38,11 +37,11 @@ def find_involved_intervals(input, phrases):
 
     intervals = []
 
-    mt_out = ''
+    mt_out = u''
     for phrase in phrases:
         mt_out += phrase['content']
 
-    left = mt_out.index(input)
+    left = mt_out.index(u'' + input)
     right = left + len(input)
 
     for phrase in phrases:
