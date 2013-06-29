@@ -12,7 +12,7 @@ def main():
     en2_out_lines = f.readlines()
     f.close()
 
-    current_line = 0
+    current_line = 1
     correct = 0
     for line in en2_out_lines:
         print 'Testing sentence #' + str(current_line)
