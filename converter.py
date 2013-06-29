@@ -1,7 +1,6 @@
 
 import sqlite3
 
-
 def main():
     f = open('15.graph')
     lines = f.readlines()
