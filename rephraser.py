@@ -41,8 +41,8 @@ def find_involved_intervals(input, phrases):
     for phrase in phrases:
         mt_out += phrase['content'].strip() + ' '
 
-    input = input.encode('windows-1252', 'backslashreplace')
-    mt_out = mt_out.encode('windows-1252', 'backslashreplace')
+    input = input.decode('utf-8', 'ignore').encode('windows-1252', 'backslashreplace')
+    mt_out = mt_out.decode('utf-8', 'ignore').encode('windows-1252', 'backslashreplace')
 
     if input in mt_out:
         left = mt_out.index(input)
