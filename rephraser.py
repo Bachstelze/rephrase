@@ -41,20 +41,23 @@ def find_involved_intervals(input, phrases):
     for phrase in phrases:
         mt_out += phrase['content'].strip() + ' '
 
-    input = input.decode('utf-8', 'ignore').encode('windows-1252', 'backslashreplace')
-    mt_out = mt_out.decode('utf-8', 'ignore').encode('windows-1252', 'backslashreplace')
+    try:
+        input = input.decode('utf-8', 'ignore').encode('windows-1252', 'backslashreplace')
+        mt_out = mt_out.decode('utf-8', 'ignore').encode('windows-1252', 'backslashreplace')
 
-    if input in mt_out:
-        left = mt_out.index(input)
-        right = left + len(input)
+        if input in mt_out:
+            left = mt_out.index(input)
+            right = left + len(input)
 
-        for phrase in phrases:
-            head = int(phrase['head'])
-            tail = int(phrase['tail'])
-            if (head <= right) and (tail >= left):
-                intervals.append(phrase['coverage'])
-    else:
-        print 'bad alignment'
+            for phrase in phrases:
+                head = int(phrase['head'])
+                tail = int(phrase['tail'])
+                if (head <= right) and (tail >= left):
+                    intervals.append(phrase['coverage'])
+        else:
+            print 'bad alignment'
+    except UnicodeEncodeError:
+        print 'bad encoding'
 
     return intervals
 
