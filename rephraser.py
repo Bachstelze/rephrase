@@ -3,6 +3,7 @@ import sqlite3
 
 def rephrase(output_sentence, input, db, n_results):
     phrases = parse_phrases(output_sentence)
+#    print phrases
     intervals = find_involved_intervals(input, phrases)
     paraphrases = get_paraphrases(intervals, db, n_results)
 
@@ -19,7 +20,7 @@ def parse_phrases(mt_out):
 
     while i < mt_out_arr_len - 1:
         head = tail + 1
-        tail = head + len(mt_out_arr[i]) - 1
+        tail = head + len(mt_out_arr[i]) - 2
 
         phrases.append({
             'content': mt_out_arr[i],
@@ -49,10 +50,13 @@ def find_involved_intervals(input, phrases):
             left = mt_out.index(input)
             right = left + len(input)
 
+#            print left
+#            print right
+
             for phrase in phrases:
                 head = int(phrase['head'])
                 tail = int(phrase['tail'])
-                if (head <= right) and (tail >= left):
+                if (head < right) and (tail >= left):
                     intervals.append(phrase['coverage'])
         else:
             print 'bad alignment'
@@ -70,6 +74,7 @@ def get_paraphrases(intervals, db, n_results):
 
     for interval in intervals:
         hypotheses = []
+        print interval
         c.execute("select out from hypotheses where covered = '%s' order by score desc" % interval)
 
         for row in c.fetchall():
