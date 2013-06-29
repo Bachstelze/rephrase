@@ -39,16 +39,19 @@ def find_involved_intervals(input, phrases):
 
     mt_out = ''
     for phrase in phrases:
-        mt_out += phrase['content']
+        mt_out += phrase['content'].strip() + ' '
 
-    left = mt_out.index(input)
-    right = left + len(input)
+    if input in mt_out:
+        left = mt_out.index(input)
+        right = left + len(input)
 
-    for phrase in phrases:
-        head = int(phrase['head'])
-        tail = int(phrase['tail'])
-        if (head <= right) and (tail >= left):
-            intervals.append(phrase['coverage'])
+        for phrase in phrases:
+            head = int(phrase['head'])
+            tail = int(phrase['tail'])
+            if (head <= right) and (tail >= left):
+                intervals.append(phrase['coverage'])
+    else:
+        print 'bad alignment'
 
     return intervals
 
