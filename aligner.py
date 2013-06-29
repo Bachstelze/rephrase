@@ -1,4 +1,6 @@
 
+import json
+
 def main():
 
     f = open('en2.out')
@@ -13,16 +15,19 @@ def main():
     en_lines = f.readlines()
     f.close()
 
-
+    align_data = {}
     for i, en2 in enumerate(en2_lines):
-        print '#' + str(i+1)
-        align(en_lines[i], ru_lines[i], en2)
+        align_data[str(i+1)] = align(en_lines[i], ru_lines[i], en2)
+
+    print json.dumps(align_data)
 
 #    en = 'indiana was the first state to impose such a requirement .'
 #    ru = 'indiana |0-0| stala pervym |1-3| gosudarstvom |4-4| navjazat |5-6| takoe trebovanie . |7-10|'
 #    en2 = 'indiana |0-0| became the |1-1| first state |2-3| to impose |4-4| such a requirement . |5-7|'
 
 def align(en, ru, en2):
+
+    alignment_results = []
 
     en2_parsed = parse(en2)
     ru_parsed = parse(ru)
@@ -64,7 +69,12 @@ def align(en, ru, en2):
         c_out = ' '.join(c_arr_item).strip()
         o_out = ' '.join(o_arr[i]).strip()
         if c_out != o_out:
-            print c_out + ' != ' + o_out
+            alignment_results.append({
+                'corrupted': c_out,
+                'original': o_out
+            })
+
+    return alignment_results
 
 
 def get_cov(cov, str):

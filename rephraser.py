@@ -2,15 +2,12 @@
 import sqlite3
 
 
-def main():
-    phrases = parse_phrases('the republican authorities |0-1| were |2-2| quick |3-3| to spread |4-4| the practice |5-6| to other |7-8| states . |9-10|')
-    input = 'to spread  the practice'
-
+def rephrase(output_sentence, input, db, n_results):
+    phrases = parse_phrases(output_sentence)
     intervals = find_involved_intervals(input, phrases)
-    paraphrases = get_paraphrases(intervals)
+    paraphrases = get_paraphrases(intervals, db, n_results)
 
-    for paraphrase in paraphrases:
-        print paraphrase
+    return paraphrases
 
 
 def parse_phrases(mt_out):
@@ -57,8 +54,8 @@ def find_involved_intervals(input, phrases):
     return intervals
 
 
-def get_paraphrases(intervals):
-    conn = sqlite3.connect('graph.db')
+def get_paraphrases(intervals, db, n_results):
+    conn = sqlite3.connect(db)
     c = conn.cursor()
 
     partials = []
@@ -75,7 +72,7 @@ def get_paraphrases(intervals):
     conn.close()
 
     paraphrases = []
-    for i in range(0, 100):
+    for i in range(0, n_results):
         paraphrase = ''
         for j in range(0, len(partials)):
             paraphrase += partials[j][i] + ' '
@@ -83,4 +80,4 @@ def get_paraphrases(intervals):
 
     return paraphrases
 
-main()
+
