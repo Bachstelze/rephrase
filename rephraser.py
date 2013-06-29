@@ -37,11 +37,11 @@ def find_involved_intervals(input, phrases):
 
     intervals = []
 
-    mt_out = u''
+    mt_out = ''
     for phrase in phrases:
         mt_out += phrase['content']
 
-    left = mt_out.index(u'' + input)
+    left = mt_out.index(input)
     right = left + len(input)
 
     for phrase in phrases:
