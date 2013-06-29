@@ -15,6 +15,8 @@ def main():
     current_line = 1
     correct = 0
     for line in en2_out_lines:
+        if current_line > 1000:
+            break
         print 'Testing sentence #' + str(current_line)
         test_pairs = align_data[str(current_line)]
         for test_pair in test_pairs:
