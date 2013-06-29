@@ -1,17 +1,18 @@
 
 import json
+import codecs
 
 def main():
 
-    f = open('en2.out')
+    f = codecs.open('en2.out', encoding='windows-1252')
     en2_lines = f.readlines()
     f.close()
 
-    f = open('ru.out')
+    f = codecs.open('ru.out', encoding='utf-8')
     ru_lines = f.readlines()
     f.close()
 
-    f = open('en.orig.in')
+    f = codecs.open('en.orig.in', encoding='windows-1252')
     en_lines = f.readlines()
     f.close()
 
@@ -61,14 +62,17 @@ def align(en, ru, en2):
                         c_arr.append([])
                         o_arr.append([])
 
-
             c_arr[len(c_arr) - 1].append(corrupted)
             o_arr[len(o_arr) - 1].append(original)
+
+        elif (len(c_arr) > 0) and (len(c_arr[len(c_arr) - 1]) > 0):
+            c_arr.append([])
+            o_arr.append([])
 
     for i, c_arr_item in enumerate(c_arr):
         c_out = ' '.join(c_arr_item).strip()
         o_out = ' '.join(o_arr[i]).strip()
-        if c_out != o_out:
+        if (c_out != o_out) and (len(c_out) > 0) and (len(o_out) > 0):
             alignment_results.append({
                 'corrupted': c_out,
                 'original': o_out
