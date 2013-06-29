@@ -21,7 +21,7 @@ def main():
         test_pairs = align_data[str(current_line)]
         for test_pair in test_pairs:
             N = 55
-            paraphrases = rephraser.rephrase(line, test_pair['corrupted'], '../../evaluation/graph-dbs/s' + str(current_line) + '.graph.db', N)
+            paraphrases = rephraser.rephrase(line, test_pair['corrupted'], '../../evaluation/graph-dbs/s' + str(current_line-1) + '.graph.db', N)
             for paraphrase in paraphrases:
                 if test_pair['original'] == paraphrase:
                     correct += 1
