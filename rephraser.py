@@ -3,7 +3,6 @@ import sqlite3
 
 def rephrase(output_sentence, input, db, n_results):
     phrases = parse_phrases(output_sentence)
-#    print phrases
     intervals = find_involved_intervals(input, phrases)
     paraphrases = get_paraphrases(intervals, db, n_results)
 
@@ -50,9 +49,6 @@ def find_involved_intervals(input, phrases):
             left = mt_out.index(input)
             right = left + len(input)
 
-#            print left
-#            print right
-
             for phrase in phrases:
                 head = int(phrase['head'])
                 tail = int(phrase['tail'])
@@ -74,7 +70,6 @@ def get_paraphrases(intervals, db, n_results):
 
     for interval in intervals:
         hypotheses = []
-        print interval
         c.execute("select out from hypotheses where covered = '%s' order by score desc" % interval)
 
         for row in c.fetchall():
