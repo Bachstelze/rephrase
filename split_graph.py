@@ -1,7 +1,7 @@
 
 
 def main():
-    f = open('../../evaluation/enru.graph')
+    f = open('../../evaluation/ruen.graph')
     line = f.readline()
     current_sentence_id = ''
     out = None
