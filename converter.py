@@ -2,13 +2,14 @@
 import sqlite3
 
 def main():
-    f = open('15.graph')
-    lines = f.readlines()
+    for index in range(0, 1000):
+        f = open('../../evaluation/graph-parts/s' + str(index) + '.graph')
+        lines = f.readlines()
 
-    hyps = process_lines(lines)
-    f.close()
+        hyps = process_lines(lines)
+        f.close()
 
-    save_to_db(hyps)
+        save_to_db(hyps, index)
     pass
 
 
@@ -61,8 +62,8 @@ def init_first_hyp(hyp):
     hyp['out'] = '-1'
 
 
-def save_to_db(hyps):
-    conn = sqlite3.connect('graph.db')
+def save_to_db(hyps, index):
+    conn = sqlite3.connect('../../evaluation/graph-dbs/s' + str(index) + '.graph.db')
     c = conn.cursor()
     c.execute('''CREATE TABLE hypotheses
              (hyp, stack, back, score, transition, recombined, forward, fscore, covered, out)''')
