@@ -41,17 +41,14 @@ def find_involved_intervals(input, phrases):
     for phrase in phrases:
         mt_out += phrase['content']
 
-    try:
-        left = mt_out.index(input)
-        right = left + len(input)
+    left = mt_out.index(input)
+    right = left + len(input)
 
-        for phrase in phrases:
-            head = int(phrase['head'])
-            tail = int(phrase['tail'])
-            if (head <= right) and (tail >= left):
-                intervals.append(phrase['coverage'])
-    except ValueError:
-        print 'Value Error :('
+    for phrase in phrases:
+        head = int(phrase['head'])
+        tail = int(phrase['tail'])
+        if (head <= right) and (tail >= left):
+            intervals.append(phrase['coverage'])
 
     return intervals
 

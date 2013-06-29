@@ -8,7 +8,7 @@ def main():
     align_data = json.load(f)
     f.close()
 
-    f = open('../../evaluation/en2.out')
+    f = open('en2.out')
     en2_out_lines = f.readlines()
     f.close()
 
