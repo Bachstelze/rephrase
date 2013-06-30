@@ -17,6 +17,13 @@ def main():
 
     START = 0
     FINISH = 1000
+    N = 15
+
+    logs = {
+        'tests': [],
+        'numberOfTests': FINISH - START,
+        'numberOfOutputs': N
+    }
 
     for line in en2_out_lines:
         if current_line < START:
@@ -27,14 +34,26 @@ def main():
         print 'Testing sentence #' + str(current_line)
         test_pairs = align_data[str(current_line)]
         for test_pair in test_pairs:
-            N = 15
             paraphrases = rephraser.rephrase(line, test_pair['corrupted'], '../../evaluation/graph-dbs/s' + str(current_line-1) + '.graph.db', N)
+            correct_case = False
             for paraphrase in paraphrases:
                 if test_pair['original'].strip() == paraphrase.strip():
                     correct += 1
+                    correct_case = True
                     break
+            logs['tests'].append({
+                'lineNo': current_line,
+                'pair': test_pair,
+                'line': line,
+                'paraphrases': paraphrases,
+                'correct': correct_case
+            })
+
         current_line += 1
 
+    logs['numberOfCorrectCases'] = correct
     print 'Correct results:' + str(correct)
+    print ''
+    print json.dumps(logs)
 
 main()
