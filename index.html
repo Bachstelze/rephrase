@@ -29,6 +29,7 @@
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="./index.html">Home</a></li>
+              <li><a target="_blank" href="https://github.com/rustamli/rephrase">Source</a></li>
               <li><a target="_blank" href="http://rustam.li">Contact</a></li>
             </ul>
           </div>
@@ -42,12 +43,43 @@
     <div class="container">
 
       <h1>Paraphrasing Experiments</h1>
-
       <br>
       <br>
 
-      <iframe src="http://ghbtns.com/github-btn.html?user=rustamli&repo=rephrase&type=fork&size=large"
-        allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+      <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+
+        <h2>Evaluation Results</h2>
+
+        <a href="./eval.html">Results for a naive baseline approach</a>
+
+        <br>
+        <br>
+        <br>
+        
+        <h2>
+        <a name="active-ideas" class="anchor" href="#active-ideas"><span class="octicon octicon-link"></span></a>Active Ideas</h2>
+        <h3>
+        <a name="using-search-graph" class="anchor" href="#using-search-graph"><span class="octicon octicon-link"></span></a>Using Search Graph</h3>
+
+        <ul>
+        <li>store hypotheses from Moses text output in a local sqlite database</li>
+        <li>find span in the graph that generated phrases user wants to paraphrase </li>
+        <li>find alternative phrases in the search graph that have similar coverage<br>
+        </li>
+        <li>use <em>forward</em> and <em>fscore</em> to merge these phrases into paraphrasing options </li>
+        <li>rank resulting options according to the scores of their constituent phrase scores </li>
+        </ul><h3>
+        <a name="monolingual-paraphrasing" class="anchor" href="#monolingual-paraphrasing"><span class="octicon octicon-link"></span></a>Monolingual Paraphrasing</h3>
+
+        <h2>
+        <a name="project-structure" class="anchor" href="#project-structure"><span class="octicon octicon-link"></span></a>Project Structure</h2>
+
+        <ul>
+        <li>
+        <strong>converter.py</strong> - converts textual representation of the search graph into an sqlite database</li>
+        <li>
+        <strong>rephraser.py</strong> - produces paraphrasing options from an MT output sentence and an input string that contains user's selection for paraphrasing </li>
+        </ul></article>
 
     </div>
 

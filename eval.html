@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>project : rephrase</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Le styles -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootswatch/2.3.2/cosmo/bootstrap.min.css">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+
+      .success-r td {
+        color: rgb(0, 138, 0);
+        font-weight: bold;
+      }
+      .success-r .btn {
+        font-weight: normal;
+      }
+      .error-r td {
+        color: rgb(207, 26, 26);;
+      }
+
+      #details-modal-body .badge {
+        margin-bottom: 10px;
+      }
+
+      .badge-error {
+        background-color: rgb(202, 4, 4);
+      }
+    </style>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="eval.1.js"></script>
+    <script type="text/javascript">
+
+      $(function() {
+          var source = $('#row-tpl').html();
+          var template = Handlebars.compile(source);
+
+          var $tableBody = $('#table-body');
+          var no = 0;
+          $.each(DATA.tests, function() {
+             no += 1
+             this['no'] = no
+             this['cls'] = this.correct ? 'success' : 'error'
+             $tableBody.append(template(this))
+          })
+
+          $('.btn-details').click(function() {
+            var source = $('#details-tpl').html();
+            var template = Handlebars.compile(source);
+
+            $('#details-modal-body').html(template(DATA.tests[$(this).attr('data-no')-1]))
+          })
+      })
+    </script>
+  </head>
+
+  <body>
+    <script type="text/x-handlebars-template" id="row-tpl">
+        <tr class="{{ cls }}-r">
+          <td>{{ lineNo }}:<b>{{ no }}</b></td>
+          <td>{{ pair.corrupted }}</td>
+          <td>{{ pair.original }}</td>
+          <td><a href="#detailsModal" role="button" data-toggle="modal" class="btn btn-primary btn-details" data-no="{{ no }}">Details</a></td>
+        </tr>
+    </script>
+
+    <script type="text/x-handlebars-template" id="details-tpl">
+        <div>
+          <span class="badge badge-inverse">Case #{{ no }}:</span>
+          <span class="badge badge-{{ cls }}">{{ cls }}</span>
+        </div>
+
+        <div>
+          <span class="badge badge-inverse">MT Output Sentence #{{lineNo}}:</span><br>
+          <p>{{ line }}</p>
+        </div>
+        <div>
+          <span class="badge badge-inverse">Paraphrase Source:</span><br>
+          <p>{{ pair.corrupted }}</p>
+        </div>
+        <div>
+          <span class="badge badge-inverse">Desired Paraphrase:</span><br>
+          <p>{{ pair.original }}</p>
+        </div>        
+        
+        <div>
+          <span class="badge badge-inverse">Paraphrases:</span><br>
+          <table class="table table-striped">
+            <tbody>
+              {{#each paraphrases}}
+              <tr>
+                <td>{{this}}</td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+    </script>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="./index.html">project: <b>rephrase</b></a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="./index.html">Home</a></li>
+              <li><a target="_blank" href="https://github.com/rustamli/rephrase">Source</a></li>
+              <li><a target="_blank" href="http://rustam.li">Contact</a></li>
+            </ul>
+          </div>
+          <div class="pull-right">
+             <a href="http://www.ed.ac.uk"><img src="UniLogoBlue.png" alt="The University Of Edinburgh"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <h1>Evaluation Results #001</h1>
+
+      <br>
+
+      <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Original</th>
+          <th>Desired Paraphrase</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody id="table-body">
+     
+      </tbody>
+    </table>
+
+    </div>
+
+
+    <!-- Modal -->
+    <div id="detailsModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="detailsModalLabel">More details</h3>
+      </div>
+      <div id="details-modal-body" class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      </div>
+    </div>
+
+  </body>
+</html>
