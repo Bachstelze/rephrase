@@ -42,9 +42,9 @@ def main():
                     correct_case = True
                     break
             logs['tests'].append({
-                'lineNo': current_line,
+                'lineNo': f_enc(current_line),
                 'pair': test_pair,
-                'line': line,
+                'line': f_enc(line),
                 'paraphrases': paraphrases,
                 'correct': correct_case
             })
@@ -55,5 +55,9 @@ def main():
     print 'Correct results:' + str(correct)
     print ''
     print json.dumps(logs)
+
+def f_enc(str):
+    return str.decode('utf-8', 'ignore').encode('windows-1252', 'backslashreplace')
+
 
 main()
