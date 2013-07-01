@@ -42,7 +42,7 @@ def main():
                     correct_case = True
                     break
             logs['tests'].append({
-                'lineNo': f_enc(current_line),
+                'lineNo': current_line,
                 'pair': test_pair,
                 'line': f_enc(line),
                 'paraphrases': paraphrases,
