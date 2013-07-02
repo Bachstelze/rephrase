@@ -1,5 +1,14 @@
 
-def filter_paraphrases(partials, n_results):
+import subprocess
+
+def filter_paraphrases(partials, n_results, mt_out, phrases, intervals):
+    global PHRASES
+    global MT_OUT
+    global INTERVALS
+    MT_OUT = mt_out
+    PHRASES = phrases
+    INTERVALS = intervals
+
     paraphrases = []
     clustered_partials = cluster_partials(partials)
     sorted_clustered_partials = sort_clusters(clustered_partials)
@@ -47,18 +56,34 @@ def load_stopwords():
     return stopwords
 
 
-def cluster_score(phrase):
-    return -len(phrase)
+def cluster_score(phrase, index):
+    interval = INTERVALS[index]
+    original_phrase = ''
+    for phrase_data in PHRASES:
+        if phrase_data['coverage'] == interval:
+            original_phrase = phrase_data['content'].strip()
+            break
+
+    return lm_score(MT_OUT.replace(original_phrase, phrase))
+
+def lm_score(str):
+    lm_result = subprocess.check_output(["sh", "lm.sh", "'" + str + "'"])
+    try:
+        score = float(lm_result.split('Total: ')[1].split(' OOV:')[0])
+    except :
+        score = -9999.9
+    return score
 
 
 def sort_clusters(clustered_partials):
     sorted_clustered_partials = []
+    partial_index = 0
     for clustered_partial in clustered_partials:
         sorted_clustered_partial = {}
         for key in clustered_partial:
-            sorted_clustered_partial[key] = sorted(clustered_partial[key], key=lambda phrase: cluster_score(phrase))
+            sorted_clustered_partial[key] = sorted(clustered_partial[key], key=lambda phrase: cluster_score(phrase, partial_index))
         sorted_clustered_partials.append(sorted_clustered_partial)
-
+        partial_index += 1
     return sorted_clustered_partials
 
 def flatten_partials(sorted_clustered_partials):

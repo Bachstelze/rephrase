@@ -3,11 +3,18 @@ import sqlite3
 # import basic_filter
 import smart_cluster_filter
 
+
+
 def rephrase(output_sentence, input, db, n_results):
     phrases = parse_phrases(output_sentence)
     intervals = find_involved_intervals(input, phrases)
-    paraphrases = get_paraphrases(intervals, db, n_results)
 
+    global PHRASES
+    global INTERVALS
+    PHRASES = phrases
+    INTERVALS = intervals
+
+    paraphrases = get_paraphrases(intervals, db, n_results)
     return paraphrases
 
 
@@ -47,6 +54,9 @@ def find_involved_intervals(input, phrases):
         input = input.decode('utf-8', 'ignore').encode('windows-1252', 'backslashreplace')
         mt_out = mt_out.decode('utf-8', 'ignore').encode('windows-1252', 'backslashreplace')
 
+        global MT_OUT
+        MT_OUT = mt_out
+
         if input in mt_out:
             left = mt_out.index(input)
             right = left + len(input)
@@ -81,7 +91,7 @@ def get_paraphrases(intervals, db, n_results):
 
     conn.close()
 
-    return smart_cluster_filter.filter_paraphrases(partials, n_results)
+    return smart_cluster_filter.filter_paraphrases(partials, n_results, MT_OUT, PHRASES, INTERVALS)
 
 
 results = rephrase('the republican authorities |0-1| were |2-2| quick |3-3| to spread |4-4| the practice |5-6| to other |7-8| states . |9-10|', 'to spread the practice', 'graph.db', 50)
