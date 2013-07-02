@@ -35,10 +35,18 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="eval.1.js"></script>
     <script type="text/javascript">
 
       $(function() {
+          var evalId = location.search.substr(1);
+          if (evalId == '') {
+            evalId = '1'
+          }
+          $(document.body).append('<script type="text/javascript" src="eval.' + evalId + '.js"></script>')
+      })
+
+
+      function render() {
           var source = $('#row-tpl').html();
           var template = Handlebars.compile(source);
 
@@ -57,7 +65,7 @@
 
             $('#details-modal-body').html(template(DATA.tests[$(this).attr('data-no')-1]))
           })
-      })
+      }
     </script>
   </head>
 
