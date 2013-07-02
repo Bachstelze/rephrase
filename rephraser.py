@@ -1,5 +1,7 @@
 
 import sqlite3
+# import basic_filter
+import smart_cluster_filter
 
 def rephrase(output_sentence, input, db, n_results):
     phrases = parse_phrases(output_sentence)
@@ -79,18 +81,10 @@ def get_paraphrases(intervals, db, n_results):
 
     conn.close()
 
-    paraphrases = []
-    for i in range(0, n_results):
-        paraphrase = ''
-        if len(partials) > 0:
-            for j in range(0, len(partials)):
-                if i >= len(partials[j]):
-                    paraphrase = ''
-                    break
-                paraphrase += partials[j][i] + ' '
-        if paraphrase != '':
-            paraphrases.append(paraphrase)
-
-    return paraphrases
+    return smart_cluster_filter.filter_paraphrases(partials, n_results)
 
 
+results = rephrase('the republican authorities |0-1| were |2-2| quick |3-3| to spread |4-4| the practice |5-6| to other |7-8| states . |9-10|', 'to spread the practice', 'graph.db', 50)
+
+for result in results:
+    print result
