@@ -39,12 +39,11 @@
 
       $(function() {
           var evalId = location.search.substr(1);
-          if (evalId == '') {
-            evalId = '1'
-          }
-          $(document.body).append('<script type="text/javascript" src="eval.' + evalId + '.js"></script>')
+          var fileref=document.createElement('script')
+          fileref.setAttribute("type","text/javascript")
+          fileref.setAttribute("src", 'eval.' + evalId + '.js')
+          document.getElementsByTagName("head")[0].appendChild(fileref)
       })
-
 
       function render() {
           var source = $('#row-tpl').html();
