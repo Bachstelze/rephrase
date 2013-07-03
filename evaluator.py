@@ -72,9 +72,9 @@ def zeros(x, y):
 def calculateDistance(word1, word2):
     x = zeros(len(word1)+1, len(word2)+1)
     for i in range(0,len(word1)+1):
-        x[i,0] = i
+        x[i][0] = i
     for i in range(0,len(word2)+1):
-        x[0,i] = i
+        x[0][i] = i
 
     for j in range(1,len(word2)+1):
         for i in range(1,len(word1)+1):
