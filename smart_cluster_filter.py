@@ -1,13 +1,15 @@
 
-import subprocess
+# import subprocess
 
-def filter_paraphrases(partials, n_results, mt_out, phrases, intervals):
+def filter_paraphrases(partials, n_results, mt_out, phrases, intervals, scores):
     global PHRASES
     global MT_OUT
     global INTERVALS
+    global SCORES
     MT_OUT = mt_out
     PHRASES = phrases
     INTERVALS = intervals
+    SCORES = scores
 
     paraphrases = []
     clustered_partials = cluster_partials(partials)
@@ -43,7 +45,7 @@ def cluster_partials(partials):
             cluster_key = cluster_key.strip()
             if not cluster_key in clustered_partial:
                 clustered_partial[cluster_key] = [phrase]
-            else:
+            elif not phrase in clustered_partial[cluster_key]:
                 clustered_partial[cluster_key].append(phrase)
 
         clustered_partials.append(clustered_partial)
@@ -57,22 +59,16 @@ def load_stopwords():
 
 
 def cluster_score(phrase, index):
-    interval = INTERVALS[index]
-    original_phrase = ''
-    for phrase_data in PHRASES:
-        if phrase_data['coverage'] == interval:
-            original_phrase = phrase_data['content'].strip()
-            break
+    return -SCORES[phrase]
 
-    return lm_score(MT_OUT.replace(original_phrase, phrase))
-
-def lm_score(str):
-    lm_result = subprocess.check_output(["sh", "lm.sh", "'" + str + "'"])
-    try:
-        score = float(lm_result.split('Total: ')[1].split(' OOV:')[0])
-    except :
-        score = -9999.9
-    return score
+#
+#def lm_score(str):
+##    lm_result = subprocess.check_output(["sh", "lm.sh", "'" + str + "'"])
+##    try:
+##        score = float(lm_result.split('Total: ')[1].split(' OOV:')[0])
+##    except :
+##        score = -9999.9
+#    return -len(str)
 
 
 def sort_clusters(clustered_partials):

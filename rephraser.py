@@ -79,19 +79,24 @@ def get_paraphrases(intervals, db, n_results):
     c = conn.cursor()
 
     partials = []
+    scores = {}
 
     for interval in intervals:
         hypotheses = []
-        c.execute("select out from hypotheses where covered = '%s' order by score desc" % interval)
+        c.execute("select out, score from hypotheses where covered = '%s' order by score desc" % interval)
 
         for row in c.fetchall():
             hypotheses.append(row[0])
+            score = float(row[1])
+            key = row[0].strip()
+            if (not key in scores) or (scores[key] < score):
+                scores[key] = score
 
         partials.append(hypotheses)
 
     conn.close()
 
-    return smart_cluster_filter.filter_paraphrases(partials, n_results, MT_OUT, PHRASES, INTERVALS)
+    return smart_cluster_filter.filter_paraphrases(partials, n_results, MT_OUT, PHRASES, INTERVALS, scores)
 
 
 results = rephrase('the republican authorities |0-1| were |2-2| quick |3-3| to spread |4-4| the practice |5-6| to other |7-8| states . |9-10|', 'to spread the practice', 'graph.db', 50)
