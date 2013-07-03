@@ -37,7 +37,7 @@ def main():
             paraphrases = rephraser.rephrase(line, test_pair['corrupted'], '../../evaluation/graph-dbs/s' + str(current_line-1) + '.graph.db', N)
             correct_case = False
             for paraphrase in paraphrases:
-                if test_pair['original'].strip() == paraphrase.strip():
+                if calculateDistance(test_pair['original'].strip(), paraphrase.strip()) < 4:
                     correct += 1
                     correct_case = True
                     break
@@ -59,5 +59,35 @@ def main():
 def f_enc(str):
     return str.decode('utf-8', 'ignore').encode('windows-1252', 'backslashreplace')
 
+
+def zeros(x, y):
+    result = []
+    for i in range(0, y):
+        row = []
+        for j in range(0, x):
+            row.append(0)
+        result.append(row)
+    return result
+
+def calculateDistance(word1, word2):
+    x = zeros( (len(word1)+1, len(word2)+1) )
+    for i in range(0,len(word1)+1):
+        x[i,0] = i
+    for i in range(0,len(word2)+1):
+        x[0,i] = i
+
+    for j in range(1,len(word2)+1):
+        for i in range(1,len(word1)+1):
+            if word1[i-1] == word2[j-1]:
+                x[i,j] = x[i-1,j-1]
+            else:
+                minimum = x[i-1, j] + 1
+                if minimum > x[i, j-1] + 1:
+                    minimum = x[i, j-1] + 1
+                if minimum > x[i-1, j-1] + 1:
+                    minimum = x[i-1, j-1] + 1
+                x[i,j] = minimum
+
+    return x[len(word1), len(word2)]
 
 main()
