@@ -98,8 +98,8 @@ def get_paraphrases(intervals, db, n_results):
 
     return smart_cluster_filter.filter_paraphrases(partials, n_results, MT_OUT, PHRASES, INTERVALS, scores)
 
-
-results = rephrase('the republican authorities |0-1| were |2-2| quick |3-3| to spread |4-4| the practice |5-6| to other |7-8| states . |9-10|', 'to spread the practice', 'graph.db', 50)
-
-for result in results:
-    print result
+#
+#results = rephrase('the republican authorities |0-1| were |2-2| quick |3-3| to spread |4-4| the practice |5-6| to other |7-8| states . |9-10|', 'to spread the practice', 'graph.db', 50)
+#
+#for result in results:
+#    print result
