@@ -62,9 +62,9 @@ def f_enc(str):
 
 def zeros(x, y):
     result = []
-    for i in range(0, y+1):
+    for i in range(0, y+2):
         row = []
-        for j in range(0, x+1):
+        for j in range(0, x+2):
             row.append(0)
         result.append(row)
     return result
