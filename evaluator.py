@@ -70,7 +70,7 @@ def zeros(x, y):
     return result
 
 def calculateDistance(word1, word2):
-    x = zeros( (len(word1)+1, len(word2)+1) )
+    x = zeros(len(word1)+1, len(word2)+1)
     for i in range(0,len(word1)+1):
         x[i,0] = i
     for i in range(0,len(word2)+1):
@@ -79,15 +79,15 @@ def calculateDistance(word1, word2):
     for j in range(1,len(word2)+1):
         for i in range(1,len(word1)+1):
             if word1[i-1] == word2[j-1]:
-                x[i,j] = x[i-1,j-1]
+                x[i][j] = x[i-1][j-1]
             else:
-                minimum = x[i-1, j] + 1
-                if minimum > x[i, j-1] + 1:
-                    minimum = x[i, j-1] + 1
-                if minimum > x[i-1, j-1] + 1:
-                    minimum = x[i-1, j-1] + 1
+                minimum = x[i-1][j] + 1
+                if minimum > x[i][j-1] + 1:
+                    minimum = x[i][j-1] + 1
+                if minimum > x[i-1][j-1] + 1:
+                    minimum = x[i-1][j-1] + 1
                 x[i,j] = minimum
 
-    return x[len(word1), len(word2)]
+    return x[len(word1)][len(word2)]
 
 main()
