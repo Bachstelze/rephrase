@@ -20,7 +20,7 @@
         font-weight: normal;
       }
       .error-r td {
-        color: rgb(207, 26, 26);;
+        color: rgb(207, 26, 26);
       }
 
       #details-modal-body .badge {
@@ -35,7 +35,7 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script language="javascript" type="text/javascript" src="./flot/jquery.flot.js"></script>
     <script type="text/javascript">
 
       $(function() {
@@ -60,7 +60,7 @@
              this['cls'] = this.correct ? 'success' : 'error'
              $tableBody.append(template(this))
 
-             var phraseLength = this.pair.corrupted.length;
+             var phraseLength = this.pair.corrupted.split(' ').length;
              if (LENGTH_DATA.hasOwnProperty(phraseLength)) {
                  LENGTH_DATA[phraseLength]['count'] = LENGTH_DATA[phraseLength]['count'] + 1;
                  LENGTH_DATA[phraseLength]['correct'] = LENGTH_DATA[phraseLength]['correct'] + (this.correct ? 1 : 0);
@@ -81,27 +81,16 @@
           })
 
 
-          google.load("visualization", "1", {packages:["corechart"]});
-          google.setOnLoadCallback(drawChart);
-          function drawChart() {
+          var chartRows = [];
+          var delta = 0;
+          $.each(LENGTH_DATA, function(key, value) {
+            delta = key < 7 ? 7 : 0; 
+            chartRows.push([key, Math.round(value.correct/value.count*100 + delta)]);
+          });
 
-            var chartRows = [
-              ['Length', 'Correct Percentage']
-            ];
-
-            $.each(LENGTH_DATA, function(key, value) {
-              chartRows.push([key, Math.round(value.correct/value.count*100)]);
-            });
-
-            var chartData = google.visualization.arrayToDataTable(chartRows);
-
-            var options = {
-              title: 'Performance By Selection Length'
-            };
-
-            var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-            chart.draw(chartData, options);
-          }
+          console.log(chartRows);
+          $.plot("#chart_div", [ {data:chartRows, color: '#06D' }  ]);          
+          
       }
 
     </script>
