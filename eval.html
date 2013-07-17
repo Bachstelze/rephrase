@@ -88,9 +88,7 @@
             chartRows.push([key, Math.round(value.correct/value.count*100 + delta)]);
           });
 
-          console.log(chartRows);
           $.plot("#chart_div", [ {data:chartRows, color: '#06D' }  ]);          
-          
       }
 
     </script>
