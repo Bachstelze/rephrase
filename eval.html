@@ -35,6 +35,7 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
 
       $(function() {
@@ -44,6 +45,8 @@
           fileref.setAttribute("src", 'eval.' + evalId + '.js')
           document.getElementsByTagName("head")[0].appendChild(fileref)
       })
+
+      var LENGTH_DATA = {};
 
       function render() {
           var source = $('#row-tpl').html();
@@ -56,15 +59,51 @@
              this['no'] = no
              this['cls'] = this.correct ? 'success' : 'error'
              $tableBody.append(template(this))
+
+             var phraseLength = this.pair.corrupted.length;
+             if (LENGTH_DATA.hasOwnProperty(phraseLength)) {
+                 LENGTH_DATA[phraseLength]['count'] = LENGTH_DATA[phraseLength]['count'] + 1;
+                 LENGTH_DATA[phraseLength]['correct'] = LENGTH_DATA[phraseLength]['correct'] + (this.correct ? 1 : 0);
+             } else {
+                 LENGTH_DATA[phraseLength] = {
+                    count: 1,
+                    correct: this.correct ? 1 : 0 
+                 }
+             } 
           })
 
           $('.btn-details').click(function() {
             var source = $('#details-tpl').html();
             var template = Handlebars.compile(source);
 
-            $('#details-modal-body').html(template(DATA.tests[$(this).attr('data-no')-1]))
+            var tests = DATA.tests[$(this).attr('data-no')-1];
+            $('#details-modal-body').html(template(tests))
           })
+
+
+          google.load("visualization", "1", {packages:["corechart"]});
+          google.setOnLoadCallback(drawChart);
+          function drawChart() {
+
+            var chartRows = [
+              ['Length', 'Correct Percentage']
+            ];
+
+            $.each(LENGTH_DATA, function(key, value) {
+              chartRows.push([key, Math.round(value.correct/value.count*100)]);
+            });
+
+            var chartData = google.visualization.arrayToDataTable(chartRows);
+
+            var options = {
+              title: 'Performance By Selection Length'
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+            chart.draw(chartData, options);
+          }
       }
+
     </script>
   </head>
 
@@ -137,6 +176,10 @@
     <div class="container">
 
       <h1>Evaluation Results</h1>
+
+      <br>
+
+      <div id="chart_div" style="width: 900px; height: 500px;"></div>
 
       <br>
 
