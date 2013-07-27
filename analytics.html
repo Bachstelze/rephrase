@@ -118,7 +118,7 @@
               color: '#DE5',
               fn: function(data) {
                 var result = getSuccessRate(data, function(test) {
-                  return Math.round(test.pair.original.length/fmtSentence(test.line).length * 100);
+                  return Math.round(test.pair.corrupted.length/fmtSentence(test.line).length * 100);
                 });
 
                 var chartData = [];
@@ -138,7 +138,7 @@
               color: '#03E',
               fn: function(data) {
                 var result = getSuccessRate(data, function(test) {
-                  return test.pair.original.split(' ').length;
+                  return test.pair.corrupted.split(' ').length;
                 });
 
                 var chartData = [];
@@ -158,7 +158,49 @@
               color: '#03E',
               fn: function(data) {
                 var result = getSuccessRate(data, function(test) {
-                  return test.pair.original.length;
+                  return test.pair.corrupted.length;
+                });
+
+                var chartData = [];
+                
+                $.each(result, function(key, value) {
+                  chartData.push([key, Math.round(value.correct/value.count*100)]);
+                });
+
+                return chartData;
+              }  
+            },
+            OriginalDesiredDistance_PercentageOfCorrect: {
+              title: 'Similarity Between Original and Desired Phrases / Success Rate  (M)',
+              x: 'Levenshtein Distance Between Original and Desired Phrases',
+              y: 'Percentage Of Success Cases',
+              desc: 'If phrases are more similar is more probable that a paraphrase will be found',
+              color: '#D09',
+              fn: function(data) {
+                var result = getSuccessRate(data, function(test) {
+                  return levDist(test.pair.original, test.pair.corrupted);
+                });
+
+                var chartData = [];
+                
+                $.each(result, function(key, value) {
+                  chartData.push([key, Math.round(value.correct/value.count*100)]);
+                });
+
+                return chartData;
+              }  
+            },
+            DiversityOfOutput_PercentageOfCorrect: {
+              title: 'Diversity of Output and Success Rate  (M)',
+              x: 'Diversity Factor Of Output (Joint Levenshtein Distance) and Desired Phrases',
+              y: 'Percentage Of Success Cases',
+              desc: 'With more difersal results there\'s more chance that user will find a desired paraphrase (based on manual data)',
+              color: '#90D',
+              fn: function(data) {
+                var result = getSuccessRate(data, function(test) {
+                  var r = DATA.tests.length - (levDist(test.paraphrases[1], test.pair.original) + levDist(test.paraphrases[0], test.paraphrases[2])) - 2000; // 2000 normalization factor
+
+                  return r > 0 ? r : 0;
                 });
 
                 var chartData = [];
@@ -176,7 +218,7 @@
         manual: {
           title: 'Manual Evaluation',
           charts: [
-
+            // manuals are currenlty in auto with (M) label
           ]
         }
       }
@@ -243,6 +285,59 @@
 
         return result;
       }
+
+      function levDist(s, t) {
+        if (!s || !t) {
+          return 0;
+        } 
+        var d = []; //2d matrix
+        // Step 1
+        var n = s.length;
+        var m = t.length;
+
+        if (n == 0) return m;
+        if (m == 0) return n;
+
+        //Create an array of arrays in javascript (a descending loop is quicker)
+        for (var i = n; i >= 0; i--) d[i] = [];
+
+        // Step 2
+        for (var i = n; i >= 0; i--) d[i][0] = i;
+        for (var j = m; j >= 0; j--) d[0][j] = j;
+
+        // Step 3
+        for (var i = 1; i <= n; i++) {
+            var s_i = s.charAt(i - 1);
+
+            // Step 4
+            for (var j = 1; j <= m; j++) {
+
+                //Check the jagged ld total so far
+                if (i == j && d[i][j] > 4) return n;
+
+                var t_j = t.charAt(j - 1);
+                var cost = (s_i == t_j) ? 0 : 1; // Step 5
+
+                //Calculate the minimum
+                var mi = d[i - 1][j] + 1;
+                var b = d[i][j - 1] + 1;
+                var c = d[i - 1][j - 1] + cost;
+
+                if (b < mi) mi = b;
+                if (c < mi) mi = c;
+
+                d[i][j] = mi; // Step 6
+
+                //Damerau transposition
+                if (i > 1 && j > 1 && s_i == t.charAt(j - 2) && s.charAt(i - 2) == t_j) {
+                    d[i][j] = Math.min(d[i][j], d[i - 2][j - 2] + cost);
+                }
+            }
+      }
+
+      // Step 7
+      return d[n][m];
+    }
 
     </script>
   </head>
