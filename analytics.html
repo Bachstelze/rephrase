@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>project : rephrase</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Le styles -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootswatch/2.3.2/cosmo/bootstrap.min.css">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+
+      .success-r td {
+        color: rgb(0, 138, 0);
+        font-weight: bold;
+      }
+      .success-r .btn {
+        font-weight: normal;
+      }
+      .error-r td {
+        color: rgb(207, 26, 26);
+      }
+
+      #details-modal-body .badge {
+        margin-bottom: 10px;
+      }
+
+      .badge-error {
+        background-color: rgb(202, 4, 4);
+      }
+
+      .chart-desc {
+        padding: 15px;
+        background: #EEE;
+        font-size: 16px;
+        line-height: 30px;
+      }
+
+      .chart-desc p {
+        margin-top: 15px;
+      }
+
+      .chart-link {
+        padding: 10px;
+        background: #F1F1F1;
+        display: block;
+        font-size: 16px;
+        margin: 2px 0;
+      }
+
+      .chart-link:active {
+        color: #FFF;
+        background: #06D;
+      }
+
+      .charts-list {
+        margin-bottom: 80px;
+      }
+    </style>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script language="javascript" type="text/javascript" src="./flot/jquery.flot.js"></script>
+    <script type="text/javascript">
+
+      var REPORTS = {
+        auto: {
+          title: 'Automated Evaluation',
+          charts: {
+            SentenceLength_PercentageOfCorrect: {
+              title: 'Sentence Length And Success Rate',
+              x: 'Length Of Sencence In Words',
+              y: 'Percentage Of Success Cases',
+              desc: 'As we can see from this chart length of the sentence doesn\'t affect correctness of the result much (results for 2000 phrases)',
+              color: '#06D',
+              fn: function(data) {
+                var result = getSuccessRate(data, function(test) {
+                  return fmtSentence(test.line).split(' ').length;
+                });
+
+                var chartData = [];
+
+                $.each(result, function(key, value) {
+                  chartData.push([key, Math.round(value.correct/value.count*100)]);
+                });
+
+                return chartData;
+              }  
+            },
+            SentenceLengthChars_PercentageOfCorrect: {
+              title: 'Sentence Length (Chars) And Success Rate',
+              x: 'Length Of Sencence In Chars',
+              y: 'Percentage Of Success Cases',
+              desc: 'As we can see from this chart length of the sentence in chars also doesn\'t affect correctness of the result much (results for 2000 phrases)',
+              color: '#F06',
+              fn: function(data) {
+                var result = getSuccessRate(data, function(test) {
+                  return fmtSentence(test.line).length;
+                });
+
+                var chartData = [];
+                
+                $.each(result, function(key, value) {
+                  chartData.push([key, Math.round(value.correct/value.count*100)]);
+                });
+
+                return chartData;
+              }  
+            },
+            PhraseProportion_PercentageOfCorrect: {
+              title: 'Phrase/Sencence Ratio And Success Rate',
+              x: 'Percentage Of Selection (chars) In Original Sentence',
+              y: 'Percentage Of Success Cases',
+              desc: 'This chart shows that our best approach has better performance for smaller phrases',
+              color: '#DE5',
+              fn: function(data) {
+                var result = getSuccessRate(data, function(test) {
+                  return Math.round(test.pair.original.length/fmtSentence(test.line).length * 100);
+                });
+
+                var chartData = [];
+                
+                $.each(result, function(key, value) {
+                  chartData.push([key, Math.round(value.correct/value.count*100)]);
+                });
+
+                return chartData;
+              }  
+            },
+            PhraseLength_PercentageOfCorrect: {
+              title: 'Phrase Length And Success Rate',
+              x: 'Original Phrase Length In Words',
+              y: 'Percentage Of Success Cases',
+              desc: 'This chart shows that our best approach has better performance for smaller phrases',
+              color: '#03E',
+              fn: function(data) {
+                var result = getSuccessRate(data, function(test) {
+                  return test.pair.original.split(' ').length;
+                });
+
+                var chartData = [];
+                
+                $.each(result, function(key, value) {
+                  chartData.push([key, Math.round(value.correct/value.count*100)]);
+                });
+
+                return chartData;
+              }  
+            },
+            PhraseLengthChars_PercentageOfCorrect: {
+              title: 'Phrase Length (Chars) And Success Rate',
+              x: 'Original Phrase Length In Chars',
+              y: 'Percentage Of Success Cases',
+              desc: 'This chart shows that our best approach has better performance for smaller phrases',
+              color: '#03E',
+              fn: function(data) {
+                var result = getSuccessRate(data, function(test) {
+                  return test.pair.original.length;
+                });
+
+                var chartData = [];
+                
+                $.each(result, function(key, value) {
+                  chartData.push([key, Math.round(value.correct/value.count*100)]);
+                });
+
+                return chartData;
+              }  
+            }
+          }
+        },
+
+        manual: {
+          title: 'Manual Evaluation',
+          charts: [
+
+          ]
+        }
+      }
+
+
+      $(function() {
+          var evalId = location.search.substr(1);
+          var fileref=document.createElement('script')
+          fileref.setAttribute("type","text/javascript")
+          fileref.setAttribute("src", 'eval.' + evalId + '.js')
+          document.getElementsByTagName("head")[0].appendChild(fileref)
+      })
+
+      function render() {
+          $.each(REPORTS.auto.charts, function(key, value) {
+            $('.charts-list').append('<a href="#" class="chart-link" data-chart="' + key + '">' + value.title + '</a>')
+          });
+
+          $('.chart-link').click(function() {
+            var chart = REPORTS.auto.charts[$(this).attr('data-chart')];
+            $.plot("#chart_div", [ {data: chart.fn(DATA), color: chart.color } ]);          
+            $('#title').html(chart.title);
+            $('#x').html(chart.x);
+            $('#y').html(chart.y);
+            $('#desc').html(chart.desc);  
+          });
+
+          $('.chart-link')[0].click();
+      }
+
+      function fmtSentence(line) {
+        var lineParts = line.split('|');
+        var result = '';
+        var x = true;
+        for (part in lineParts) {
+          if (lineParts.hasOwnProperty(part) && x) {
+            result += lineParts[part].trim() + ' '
+          }
+
+          x = !x;
+        }
+
+        result = result.substring(0, 1).toUpperCase() + result.substring(1, result.length-1);
+
+        return result;
+      }
+
+      function getSuccessRate(data, fn) {
+        var result = {};
+
+        $.each(data.tests, function() {
+          var key = fn(this);
+
+          if (result.hasOwnProperty(key)) {
+            result[key]['count'] += 1;
+            result[key]['correct'] += this.correct ? 1 : 0;
+          } else {
+            result[key] = {
+              'count': 1,
+              'correct': this.correct ? 1 : 0
+            }
+          }
+        });
+
+        return result;
+      }
+
+    </script>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="./index.html">project: <b>rephrase</b></a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="./index.html">Home</a></li>
+              <li><a target="_blank" href="https://github.com/rustamli/rephrase">Source</a></li>
+              <li><a target="_blank" href="http://rustam.li">Contact</a></li>
+            </ul>
+          </div>
+          <div class="pull-right">
+             <a href="http://www.ed.ac.uk"><img src="UniLogoBlue.png" alt="The University Of Edinburgh"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <h2 id="title"></h2>
+
+      <br>
+
+      <div id="chart_div" style="width: 900px; height: 500px;"></div>
+
+      <br>
+
+      <div class="chart-desc">
+        X axis: <b id="x"></b> <br>
+        Y axis: <b id="y"></b>
+
+        <p id="desc"></p>
+      </div>
+
+      <h3>See Other Charts:</h3>
+      <div class="charts-list">
+
+      </div>
+
+    <!-- Modal -->
+    <div id="detailsModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="detailsModalLabel">More details</h3>
+      </div>
+      <div id="details-modal-body" class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      </div>
+    </div>
+
+  </body>
+</html>

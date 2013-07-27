@@ -149,7 +149,8 @@
           }, 1000);
 
          initEvents();
-              
+         
+         genOut();    
       }
 
 
@@ -231,6 +232,13 @@
       return d[n][m];
     }
 
+
+    function genOut() {
+      FormUtils.onSumbit(R.proxy.dropbox.store(JSON.stringify(function() {
+        return this.formData;
+      })))
+    }
+
     </script>
   </head>
 
@@ -257,11 +265,18 @@
         </div>        
       </div>
 
+      <div class="options-title">Custom Paraphrase</div>
+      <div class="options">
+        <div style="text-align: center">
+          <textarea placeholder="custom paraphrase" rows="5" style="width: 400px"></textarea>
+        </div>        
+      </div>  
+
       <div class="button-bar">
         <button class="btn btn-large btn-success accept-button">&#10003; Accept Selection</button>
         <br>
         <br>
-        <button class="btn btn-warning accept-button">Neither original nor options are good</button>
+        <button class="btn btn-warning accept-button"><b>Submit Custom:</b> Neither original nor options are good</button>
       </div>
     </script>
 
