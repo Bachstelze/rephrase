@@ -1,1 +1,0 @@
-echo $1 | /home/pkoehn/moses-git/bin/query /home/pkoehn/experiment/wmt13-ru-en/lm/interpolated-binlm.1
