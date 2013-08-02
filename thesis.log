@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.11)  2 AUG 2013 20:09
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.11)  2 AUG 2013 20:27
 entering extended mode
-**C:/Users/Turan/Google*Drive/ED/D/thesis/thesis.tex
-("C:/Users/Turan/Google Drive/ED/D/thesis/thesis.tex"
+**C:/Users/Turan/Google*Drive/ED/D/git-thesis/thesis.tex
+("C:/Users/Turan/Google Drive/ED/D/git-thesis/thesis.tex"
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -13,7 +13,7 @@ an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese,
 romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
 sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
 senglishmax, welsh, loaded.
-("C:\Users\Turan\Google Drive\ED\D\thesis\infthesis.cls"
+("C:\Users\Turan\Google Drive\ED\D\git-thesis\infthesis.cls"
 Document Class: infthesis 2011/02/02 v3.5 School of Informatics Thesis Class
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
 Package: geometry 2010/09/12 v5.6 Page Geometry
@@ -75,7 +75,7 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\xspace.sty"
 Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
 )
-("C:\Users\Turan\Google Drive\ED\D\thesis\eushield.sty"
+("C:\Users\Turan\Google Drive\ED\D\git-thesis\eushield.sty"
 Package: eushield 2006/08/28\ v1.1\ Commands for including the EU shield graphi
 c
 )
@@ -159,8 +159,8 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count93
 )
-("C:\Users\Turan\Google Drive\ED\D\thesis\thesis.aux"
-("C:\Users\Turan\Google Drive\ED\D\thesis\appendix1.aux")
+("C:\Users\Turan\Google Drive\ED\D\git-thesis\thesis.aux"
+("C:\Users\Turan\Google Drive\ED\D\git-thesis\appendix1.aux")
 
 Package natbib Warning: Citation `Callison-Burch2007' multiply defined.
 
@@ -260,24 +260,24 @@ Package pdftex.def Info: eushield-twocolour.pdf used on input line 19.
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/Turan/Google Dri
-ve/ED/D/thesis/eushield-twocolour.pdf>]
+ve/ED/D/git-thesis/eushield-twocolour.pdf>]
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
 (Font)              scaled to size 10.79993pt on input line 19.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 19.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
 (Font)              scaled to size 10.79993pt on input line 19.
- [1
 
-]
-[2] [3]
+[1
+
+] [2] [3]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 29.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <24.88> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 29.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
 (Font)              scaled to size 22.39185pt on input line 29.
- ("C:\Users\Turan\Google Drive\ED\D\thesis\thesis.toc"
+ ("C:\Users\Turan\Google Drive\ED\D\git-thesis\thesis.toc"
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
 LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 2.
@@ -302,12 +302,12 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
-)
-\tf@toc=\write3
  [4
 
-]
-[5] ("C:\Users\Turan\Google Drive\ED\D\thesis\chap1.tex"
+])
+\tf@toc=\write3
+
+[5] ("C:\Users\Turan\Google Drive\ED\D\git-thesis\chap1.tex"
 Chapter 1.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
@@ -329,7 +329,7 @@ LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <12> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 31.
 LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
 (Font)              scaled to size 10.79993pt on input line 31.
- [2]) ("C:\Users\Turan\Google Drive\ED\D\thesis\chap2.tex" [3]
+ [2]) ("C:\Users\Turan\Google Drive\ED\D\git-thesis\chap2.tex" [3]
 Chapter 2.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 11.
@@ -361,7 +361,7 @@ Overfull \hbox (28.0802pt too wide) in paragraph at lines 183--184
  [][] 
  []
 
-[14 <C:/Users/Turan/Google Drive/ED/D/thesis/g/translation-options.pdf>]
+[14 <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/translation-options.pdf>]
 <g/decoding-step5.pdf, id=96, 439.6425pt x 258.9675pt>
 File: g/decoding-step5.pdf Graphic file (type pdf)
 
@@ -373,7 +373,7 @@ Overfull \hbox (27.07645pt too wide) in paragraph at lines 193--194
  [][] 
  []
 
-[15 <C:/Users/Turan/Google Drive/ED/D/thesis/g/decoding-step5.pdf>]
+[15 <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/decoding-step5.pdf>]
 <g/recombination-example1.pdf, id=117, 242.9075pt x 85.31876pt>
 File: g/recombination-example1.pdf Graphic file (type pdf)
 
@@ -387,14 +387,13 @@ File: g/recombination-example2.pdf Graphic file (type pdf)
 <use g/recombination-example2.pdf>
 Package pdftex.def Info: g/recombination-example2.pdf used on input line 212.
 (pdftex.def)             Requested size: 242.90689pt x 86.32227pt.
- [16 <C:/Users/Turan/Google Drive/ED/D/thesis/g/recombination-example1.pdf> <C:
-/Users/Turan/Google Drive/ED/D/thesis/g/recombination-example2.pdf>] ("C:\Users
-\Turan\Google Drive\ED\D\thesis\thesis.bbl"
-[17])) [18
+ [16 <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/recombination-example1.pdf>
+ <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/recombination-example2.pdf>]
+("C:\Users\Turan\Google Drive\ED\D\git-thesis\thesis.bbl" [17])) [18
 
 ]
 No file appendix1.tex.
-("C:\Users\Turan\Google Drive\ED\D\thesis\thesis.bbl")
+("C:\Users\Turan\Google Drive\ED\D\git-thesis\thesis.bbl")
 
 Package natbib Warning: There were multiply defined citations.
 
@@ -402,28 +401,28 @@ Package natbib Warning: There were multiply defined citations.
 
 
 
-] ("C:\Users\Turan\Google Drive\ED\D\thesis\thesis.aux"
-("C:\Users\Turan\Google Drive\ED\D\thesis\appendix1.aux")) ) 
+] ("C:\Users\Turan\Google Drive\ED\D\git-thesis\thesis.aux"
+("C:\Users\Turan\Google Drive\ED\D\git-thesis\appendix1.aux")) ) 
 Here is how much of TeX's memory you used:
  3689 strings out of 494045
- 55607 string characters out of 3145968
+ 55707 string characters out of 3145968
  113107 words of memory out of 3000000
  6901 multiletter control sequences out of 15000+200000
  57414 words of font info for 108 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 43i,6n,41p,1005b,322s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files (
-x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files (x86)/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fon
-ts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
-/urw/helvetic/uhvr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/hel
-vetic/uhvro8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/symbol/usy
-r.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/P
-rogram Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program File
-s (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (25 pages, 212223 bytes).
+ 43i,6n,41p,1009b,322s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Fil
+es (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files (x86)/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9
+/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
+ype1/urw/helvetic/uhvr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw
+/helvetic/uhvro8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/symbol
+/usyr.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><
+C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program 
+Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on thesis.pdf (25 pages, 212307 bytes).
 PDF statistics:
  189 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
