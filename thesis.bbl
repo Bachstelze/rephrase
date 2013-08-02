@@ -1,0 +1,26 @@
+\begin{thebibliography}{}
+
+\bibitem[Callison-Burch, 2007]{Callison-Burch2007}
+Callison-Burch, C. (2007).
+\newblock {Paraphrasing and Translation Doctor of Philosophy School of
+  Informatics University of Edinburgh}.
+
+\bibitem[Koehn, 2009]{Koehn2009a}
+Koehn, P. (2009).
+\newblock {\em {Statistical Machine Translation}}.
+
+\bibitem[Koehn, 2010]{Koehn2010}
+Koehn, P. (2010).
+\newblock {Enabling Monolingual Translators : Post-Editing vs . Options}.
+\newblock (June):537--545.
+
+\bibitem[Koehn and Haddow, 2009]{KoehnHaddow2009}
+Koehn, P. and Haddow, B. (2009).
+\newblock {Interactive Assistance to Human Translators using Statistical
+  Machine Translation Methods}.
+
+\bibitem[Macklovitch et~al., 2008]{Macklovitch2008}
+Macklovitch, E., Lapalme, G., and Gotti, F. (2008).
+\newblock {TransSearch : What are translators looking for ?}
+
+\end{thebibliography}
