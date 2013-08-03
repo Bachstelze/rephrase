@@ -23,4 +23,43 @@ We also took into account following study {[]}, which analyses usage patterns of
 
 \textbf{Coexistence with manual editing}. While RePhraser aims to be used in order to fix erroneous part in the translation by getting the corrected paraphrase automatically, we acknowledge that final high quality translation cannot be achieved only by using paraphrasing. An ability to manually post-edit translation is crucial and designing our approach we considered that it will be used in an environment where translation could be altered by user at any time.  
 
+\section{Preparing data}
+
+\subsection{Retrieving search graph dump file}
+
+A representation of the search graph, described by us in Section 2.3, could be optionally returned by Moses using \textsf{-output-search-graph FILE} parameter. Resulting text file contains list of hypotheses that were considered during the decoding stage. Each line in the file represent such hypothesis. Contents of file is ordered by sentence identifiers, that appear in the beginning of each line indicating to the sentence that was being translated when the hypothesis formed. The hypotheses are in one of three possible formats.
+
+The \textit{initial hypothesis} refers to the empty hypothesis that is used as starting point in process of hypothesis expansion. This hypotheses have a simple structure and don't carry any additional information:
+
+\begin{verbatim}
+0 hyp=0 stack=0
+\end{verbatim}
+
+The \textit{regular hypothesis} encodes information about translation decisions that were made by the decoder in a given state. Sample regular hypothesis has following format:
+
+\begin{verbatim}
+0 hyp=10 stack=1 back=0 score=-1.497 transition=-1.497 forward=3437
+fscore=-8.900 covered=0-0 out=del Parlamento
+\end{verbatim}
+
+The line starts with sentence identifier which is followed by a unique hypothesis identifier \textsf{hyp=10}. This identifier is used to reference hypotheses. The stack in which hypothesis is placed identified by \textsf{stack=1}, this is also the number of words covered in original input. The next attribute \textsf{back=0} is a reference to the previous hypothesis, in this case it refers to the initial empty hypothesis. This means that current hypothesis represents the first translation option addition. Overall score of current partial translation is expressed as \textsf{score=-1.497}, which derives from a log-probability which is calculated given machine translation models. The cost of transition to current state is available as \textsf{transition=-1.497}. After finalising the translation, hypothesis attributes are enriched by adding information about the best forward step \textsf{forward=3437} and score \textsf{fscore=-8.900} to the end of the graph. Original sentence coverage information is available in following format \textsf{covered=0-0}, where \textsf{0-0} indicates covered interval.
+Finally, the last attribute \textsf{out=del Parlamento} contains the translation option that was added by introducing current hypothesis.
+
+The third type of hypothesis groups \textit{recombined hypotheses}. That are omitted as a result of recombination process that was reviewed by us in Section 2.3.5. Recombined hypotheses have following format
+
+\begin{verbatim}
+0 hyp=734 stack=2 back=24 score=-2.684 transition=-1.226 
+recombined=731 forward=8037 fscore=-7.962 covered=3-3 out=de Apoyo
+\end{verbatim}
+
+Here additional attribute \textsf{recombined=731} indicates to the hypothesis with a better score, with which current hypothesis was recombined.
+
+Another option fetching the information generated during decoding is executing Moses with \textsf{-verbose 3} parameter. This way detailed logs will be provided by the system. The resulting output will contain mostly discarded hypotheses and will not have information about best path that is being added in case of the switch we described earlier. That is why we prefer using the \textsf{-output-search-graph} option instead.
+
+More details are available at [http://goo.gl/6RYbDK]
+
+\subsection{Preprocessing data for paraphrasing}
+
+For initial testing purposes we used Moses to translate set of 3000 Russian sentences from news domain (\textit{newstest2012b}) into English. The resulting search graph dump file was about 5.7GB. In order to process it efficiently we decided to encode information from this file into a relational database. We developed a small Python script that parsed each line in the search graph file and mapped attributes into a dictionary, which was then stored in an SQLite database. The resulting transformation reduced size of our graph representation to 2.3GB. Moreover, main benefit of having our graph stored in a relational database was being able to run SQL queries against it. 
+
 \bibliography{library}
