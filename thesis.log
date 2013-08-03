@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.11)  2 AUG 2013 20:27
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.11)  3 AUG 2013 21:14
 entering extended mode
 **C:/Users/Turan/Google*Drive/ED/D/git-thesis/thesis.tex
 ("C:/Users/Turan/Google Drive/ED/D/git-thesis/thesis.tex"
@@ -387,9 +387,15 @@ File: g/recombination-example2.pdf Graphic file (type pdf)
 <use g/recombination-example2.pdf>
 Package pdftex.def Info: g/recombination-example2.pdf used on input line 212.
 (pdftex.def)             Requested size: 242.90689pt x 86.32227pt.
- [16 <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/recombination-example1.pdf>
- <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/recombination-example2.pdf>]
-("C:\Users\Turan\Google Drive\ED\D\git-thesis\thesis.bbl" [17])) [18
+)
+("C:\Users\Turan\Google Drive\ED\D\git-thesis\chap3.tex" [16 <C:/Users/Turan/Go
+ogle Drive/ED/D/git-thesis/g/recombination-example1.pdf> <C:/Users/Turan/Google
+ Drive/ED/D/git-thesis/g/recombination-example2.pdf>] [17]
+Chapter 3.
+[18
+
+] [19] ("C:\Users\Turan\Google Drive\ED\D\git-thesis\thesis.bbl" [20]))
+[21
 
 ]
 No file appendix1.tex.
@@ -397,15 +403,15 @@ No file appendix1.tex.
 
 Package natbib Warning: There were multiply defined citations.
 
-[19
+[22
 
 
 
 ] ("C:\Users\Turan\Google Drive\ED\D\git-thesis\thesis.aux"
 ("C:\Users\Turan\Google Drive\ED\D\git-thesis\appendix1.aux")) ) 
 Here is how much of TeX's memory you used:
- 3689 strings out of 494045
- 55707 string characters out of 3145968
+ 3692 strings out of 494045
+ 55818 string characters out of 3145968
  113107 words of memory out of 3000000
  6901 multiletter control sequences out of 15000+200000
  57414 words of font info for 108 fonts, out of 3000000 for 9000
@@ -422,9 +428,9 @@ ype1/urw/helvetic/uhvr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw
 /usyr.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><
 C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (25 pages, 212307 bytes).
+Output written on thesis.pdf (28 pages, 220722 bytes).
 PDF statistics:
- 189 PDF objects out of 1000 (max. 8388607)
+ 198 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
