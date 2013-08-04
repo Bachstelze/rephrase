@@ -26,5 +26,12 @@
 \contentsline {section}{\numberline {3.2}Preparing data}{20}
 \contentsline {subsection}{\numberline {3.2.1}Retrieving search graph dump file}{20}
 \contentsline {subsection}{\numberline {3.2.2}Preprocessing data for paraphrasing}{21}
-\contentsline {chapter}{Bibliography}{22}
-\contentsline {chapter}{Bibliography}{23}
+\contentsline {section}{\numberline {3.3}Project design outline}{22}
+\contentsline {subsection}{\numberline {3.3.1}Sending requests from client}{23}
+\contentsline {subsection}{\numberline {3.3.2}Request handler}{23}
+\contentsline {subsection}{\numberline {3.3.3}Input aligner}{24}
+\contentsline {subsection}{\numberline {3.3.4}Graph query execution}{24}
+\contentsline {subsection}{\numberline {3.3.5}Filters and sorters}{24}
+\contentsline {section}{\numberline {3.4}Implementation details}{25}
+\contentsline {chapter}{Bibliography}{26}
+\contentsline {chapter}{Bibliography}{27}
