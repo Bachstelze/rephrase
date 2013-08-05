@@ -33,5 +33,6 @@
 \contentsline {subsection}{\numberline {3.3.4}Graph query execution}{24}
 \contentsline {subsection}{\numberline {3.3.5}Filters and sorters}{24}
 \contentsline {section}{\numberline {3.4}Implementation details}{25}
-\contentsline {chapter}{Bibliography}{26}
-\contentsline {chapter}{Bibliography}{27}
+\contentsline {subsection}{\numberline {3.4.1}Implementing input aligner}{25}
+\contentsline {chapter}{Bibliography}{29}
+\contentsline {chapter}{Bibliography}{30}

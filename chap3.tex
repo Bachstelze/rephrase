@@ -98,8 +98,81 @@ Having required information about coverage, system executes a query against sear
 
 \subsection{Filters and sorters}
 
-Results retrieved from database are usually very redundant and have formatting issues. Thus the next step filtering them and after that using scoring function to generate final ranking. This step encapsulates the most significant part of paraphrasing algorithm. In order to experiment with various filtering and ranking techniques we have implemented a dynamic system of attachable filters and sorters. This way we were able to easily produce multiple variations of our approach and evaluate all of them against one test suite. Importantly, another benefit of this dynamic modular system is that depending on user's query we can execute different sets of filters and sorters. For example, as we will see some filters could be efficiently used only for short phrases, while others are suitable for long inputs. 
+Results retrieved from database usually are very redundant and have formatting issues. Thus the next step is filtering them and after that using scoring function to generate final ranking. This step encapsulates the most significant part of paraphrasing algorithm. In order to experiment with various filtering and ranking techniques we have implemented a dynamic system of attachable filters and sorters. This way we were able to easily produce multiple variations of our approach and evaluate all of them against one test suite. Importantly, another benefit of this dynamic modular system is that depending on user's query we can execute different sets of filters and sorters. For example, as we will see some filters could be efficiently used only for short phrases, while others are suitable for long inputs. 
 
 \section{Implementation details}
+
+In this section implementation details of the design components we described will be provided. We will start by discussing the parts that are involved in paraphrasing directly. Description of each component will also contain problematic cases and their solutions discovered by us. Next we will give a brief overview of client-server interaction implementation.
+
+\subsection{Implementing input aligner}
+
+Input aligner detects coverage of user's selection submitted for paraphrasing. Later paraphraser uses this coverage information to ensure that results do not contain words with meanings that are not part of the original selection. Information about coverage is available within machine translation output. The translation output for each sentence is formatted as in the following sample:
+
+\begin{verbatim}
+Indiana |0-0| became the |1-1| first state |2-3| 
+to impose |4-4| such a requirement . |5-7|
+\end{verbatim}
+
+Here each phrase of translation is followed by coverage details. These details are surrounded by vertical bars and contain start and end positions separated by a hyphen. For example, from this part: \texttt{first state |2-3|}, we can see that ``first state'' phrase corresponds to words in the original sentence with indices 2 and 3. We are only interested in these indices as the corresponding words don't carry useful information for paraphrasing.
+
+The alignment is achieved by matching the user's paraphrasing input with the machine translation output sentence. For now, we consider that user's selection matches part of unmodified translation output. Later we will describe cases when user  requests paraphrasing after manually editing the translation. The alignment procedure includes following steps:
+
+\begin{enumerate}
+  \item \textbf{Parsing output sentence}. We start by extracting coverage information from the output sentence and storing it in a separate data structure. The coverage data structure represents mapping between translation output and original sentence expressed in word indicies.
+  \item \textbf{Locating input}. On this step we match user's paraphrasing input with the translation. We express input words using indicies of corresponding words in translation.
+  \item \textbf{Finding involved intervals}. The final step is merging results of previous two steps to find indicies of words in original sentence that correspond to user's selection. 
+\end{enumerate}
+
+For example, application of step 1 to our sample sentence will produce the following coverage mapping:
+
+\begin{verbatim}
+|0-0| : |0-0|, |1-2| : |1-1|, |3-4| : |2-3|, 
+|5-6| : |4-4|, |7-10| : |5-7|
+\end{verbatim}
+
+On step 2, given \texttt{became the first state} as user's input, we will get:
+
+\begin{verbatim}
+became [1], the [2], first[3], state[4]
+\end{verbatim}
+
+Considering that user can submit only one selection at a time this mapping will always be sequential.
+Finding corresponding interval for each index in the input representation, we get following coverage information:
+
+\begin{verbatim}
+became the first state |1-3| (1-1, 2-3) 
+\end{verbatim}
+
+Having this information we can consider alignment complete. The described process is straightforward in case of our example. However there are situations when additional heuristics are required for paraphrasing alignment.
+
+One minor problem during alignment is dealing with \emph{selections that contain only some parts of words}. An example of such selection could be \texttt{rst state}. This situations are prevented on client-side by appending the rest of the word in case most of it is selected and omitting the partial otherwise.
+
+Another problem is with \emph{selections that contain only some parts of phrases}. Coverage information available for translation is on phrase level and do not provide us with word by word mapping. For user's input \texttt{became the first}, our aligner will produce the same coverage information as for \texttt{became the first state}. However, the word with index 3 in original sentence means ``state'' and it is not covered by \texttt{became the first}. During current project this problem was solved by automatically extending user's input to match the whole phrases. We also considered one exceptional case, when phrase partial contains only function words. Given \texttt{the first state} as paraphrasing input, instead of extending it into \texttt{became the first state}, we reduce it by removing \texttt{the}.
+
+Finally, alignment logic complicates in case when user submits selection after manually editing translation. In this case user's input may not exactly match part of translation output. If user changes are minor, for example fixing agreement between words, our alignment approach can still be used by introducing fuzzy matches based on edit distance. While this practice is dangerous in case of short selections, with multi-word inputs we can take into account that words should match parts of translation output sequentially. For example, given \texttt{told us that war} as input, matching the word \texttt{us} should be correct for the following sentence: 
+
+\begin{verbatim}
+the us president told us the war on terror must come to an end
+\end{verbatim}
+
+The logic of such fuzzy alignment may be expressed in terms of Hidden Markov Models (HMM). As these models were not used in core paraphrasing implementation, we will not provide detailed definition of them, which could be found at []. In short, HMMs are used to model systems that represent a process with hidden states, while for these states it is true that future and past states are conditionally independent given a number of present states.
+
+For the alignment case, each word in translation output represents an observation. Each observation corresponds to one of the hidden states that are words in user's selection plus special state ``none'', which means that observation doesn't correspond to any input word. Sensor model for HMM uses string edit distance and other features between observation and states. Transition model is based on the sequence of words in user's input. For our example, probability of the first $w_{2}$ and second $w_{5}$ occurrences of \texttt{us} are calculated as: 
+
+\begin{large}
+\begin{equation}
+P(us|w_{2}) = P(w_{2}|us) P(us|none)
+\end{equation}
+\end{large}
+
+\begin{large}
+\begin{equation}
+P(us|w_{5}) = P(w_{5}|us) P(us|told)
+\end{equation}
+\end{large}
+
+Here $P(w_{i}|us)$ expresses probability of that $w_{i}$ corresponds to \texttt{us} from selection. And $P(us|s_{j})$ is probability that current word corresponds to \texttt{us}, given that previous word corresponds to $s_{j}$. Considering the input sequence \texttt{told us that war}, the second probability is higher.
+
+In cases when user edits are significant, the described approach will tag all words in translation output as ``none''. In these situations, one option is to use a word aligner like GIZA++ to re-align user's current translation with original sentence and use updated coverage information. Another option is to ignore coverage and to switch to a monolingual paraphrasing, this type of paraphrasing is not supported by our approach. Our paraphrasing approach requires the user's input to be a partial translation of original sentence. This requirement lets us to use search graph as data source for paraphrasing. Unfortunately, this constraint also doesn't let our paraphrasing approach to be used outside translation task. 
 
 \bibliography{library}
