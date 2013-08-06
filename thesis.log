@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.11)  5 AUG 2013 04:34
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.11)  6 AUG 2013 06:48
 entering extended mode
 **C:/Users/Turan/Google*Drive/ED/D/git-thesis/thesis.tex
 ("C:/Users/Turan/Google Drive/ED/D/git-thesis/thesis.tex"
@@ -164,6 +164,31 @@ Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 \Gin@req@height=\dimen118
 \Gin@req@width=\dimen119
 )
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.sty"
+\lst@mode=\count94
+\lst@gtempboxa=\box26
+\lst@token=\toks16
+\lst@length=\count95
+\lst@currlwidth=\dimen120
+\lst@column=\count96
+\lst@pos=\count97
+\lst@lostspace=\dimen121
+\lst@width=\dimen122
+\lst@newlines=\count98
+\lst@lineno=\count99
+\lst@maxwidth=\dimen123
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count100
+\lst@skipnumbers=\count101
+\lst@framebox=\box27
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+File: listings.cfg 2007/02/22 1.4 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+
 ("C:\Users\Turan\Google Drive\ED\D\git-thesis\thesis.aux"
 ("C:\Users\Turan\Google Drive\ED\D\git-thesis\appendix1.aux")
 
@@ -181,24 +206,27 @@ Package natbib Warning: Citation `KoehnHaddow2009' multiply defined.
 
 Package natbib Warning: Citation `Macklovitch2008' multiply defined.
 
+
+Package natbib Warning: Citation `yen1971finding' multiply defined.
+
 )
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 16.
-LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 16
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 17.
+LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 17
 .
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\omspzccm.fd"
 File: omspzccm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/pzccm.
 )
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -236,52 +264,54 @@ LaTeX Font Info:    ... okay on input line 16.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count94
-\scratchdimen=\dimen120
-\scratchbox=\box26
-\nofMPsegments=\count95
-\nofMParguments=\count96
-\everyMPshowfont=\toks16
-\MPscratchCnt=\count97
-\MPscratchDim=\dimen121
-\MPnumerator=\count98
-\makeMPintoPDFobject=\count99
-\everyMPtoPDFconversion=\toks17
+\scratchcounter=\count102
+\scratchdimen=\dimen124
+\scratchbox=\box28
+\nofMPsegments=\count103
+\nofMParguments=\count104
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count105
+\MPscratchDim=\dimen125
+\MPnumerator=\count106
+\makeMPintoPDFobject=\count107
+\everyMPtoPDFconversion=\toks18
 )
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count108
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 20.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 21.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <20.74> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 21.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 18.66588pt on input line 20.
+(Font)              scaled to size 18.66588pt on input line 21.
  <eushield-twocolour.pdf, id=1, 369.38pt x 373.395pt>
 File: eushield-twocolour.pdf Graphic file (type pdf)
 
 <use eushield-twocolour.pdf>
-Package pdftex.def Info: eushield-twocolour.pdf used on input line 20.
+Package pdftex.def Info: eushield-twocolour.pdf used on input line 21.
 (pdftex.def)             Requested size: 369.37909pt x 373.39409pt.
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/Turan/Google Dri
 ve/ED/D/git-thesis/eushield-twocolour.pdf>]
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
-(Font)              scaled to size 10.79993pt on input line 20.
+(Font)              scaled to size 10.79993pt on input line 21.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 21.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 20.
+(Font)              scaled to size 10.79993pt on input line 21.
 
 [1
 
 ] [2] [3]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <24.88> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 30.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 31.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 22.39185pt on input line 30.
+(Font)              scaled to size 22.39185pt on input line 31.
  ("C:\Users\Turan\Google Drive\ED\D\git-thesis\thesis.toc"
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
@@ -418,8 +448,30 @@ Package pdftex.def Info: g/screenshot.png used on input line 83.
 (pdftex.def)             Requested size: 406.14134pt x 357.20866pt.
 
 [23 <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/screenshot.png>] [24]
-[25] [26] [27] ("C:\Users\Turan\Google Drive\ED\D\git-thesis\thesis.bbl"
-[28])) [29
+[25] [26] [27]
+Overfull \hbox (9.71364pt too wide) in paragraph at lines 182--183
+\OT1/pcr/m/n/12 sentenceId, hyp, stack, back, score, transition, recombined, fo
+rward,
+ []
+
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
+(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 187.
+
+[28] [29] <g/coverage-expansion.pdf, id=203, 343.2825pt x 194.7275pt>
+File: g/coverage-expansion.pdf Graphic file (type pdf)
+
+<use g/coverage-expansion.pdf>
+Package pdftex.def Info: g/coverage-expansion.pdf used on input line 208.
+(pdftex.def)             Requested size: 343.28165pt x 194.727pt.
+ [30 <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/coverage-expansion.pdf>] <g
+/fsm.pdf, id=232, 409.53pt x 203.76125pt>
+File: g/fsm.pdf Graphic file (type pdf)
+
+<use g/fsm.pdf>
+Package pdftex.def Info: g/fsm.pdf used on input line 224.
+(pdftex.def)             Requested size: 409.52899pt x 203.76074pt.
+ [31] ("C:\Users\Turan\Google Drive\ED\D\git-thesis\thesis.bbl"
+[32 <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/fsm.pdf>])) [33
 
 ]
 No file appendix1.tex.
@@ -427,20 +479,20 @@ No file appendix1.tex.
 
 Package natbib Warning: There were multiply defined citations.
 
-[30
+[34
 
 
 
 ] ("C:\Users\Turan\Google Drive\ED\D\git-thesis\thesis.aux"
 ("C:\Users\Turan\Google Drive\ED\D\git-thesis\appendix1.aux")) ) 
 Here is how much of TeX's memory you used:
- 3759 strings out of 494045
- 56856 string characters out of 3145968
- 113859 words of memory out of 3000000
- 6959 multiletter control sequences out of 15000+200000
- 59432 words of font info for 112 fonts, out of 3000000 for 9000
+ 4949 strings out of 494045
+ 74526 string characters out of 3145968
+ 132326 words of memory out of 3000000
+ 8133 multiletter control sequences out of 15000+200000
+ 60545 words of font info for 114 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 43i,6n,41p,1194b,328s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,6n,41p,1194b,329s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Fil
 es (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files (x86)/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTe
@@ -453,9 +505,9 @@ helvetic/uhvr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/helvetic
 ><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x8
 6)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (36 pages, 326314 bytes).
+Output written on thesis.pdf (40 pages, 401241 bytes).
 PDF statistics:
- 242 PDF objects out of 1000 (max. 8388607)
+ 309 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

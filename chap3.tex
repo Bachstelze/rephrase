@@ -96,7 +96,7 @@ Before user's paraphrasing query is executed against our graph database, it is b
 
 Having required information about coverage, system executes a query against search graph database. This is achieved by transforming search constraints into an SQL query. Depending on phrase length and other phrase specific features several sequential SQL queries could be executed. Results represent a list of unfiltered translation options that are have high probability of being suitable paraphrases to user's selection. Each translation option is paired with data about corresponding hypothesis scores, that are used in further stages of paraphrasing workflow.
 
-\subsection{Filters and sorters}
+\subsection{Filters, scorers and sorters}
 
 Results retrieved from database usually are very redundant and have formatting issues. Thus the next step is filtering them and after that using scoring function to generate final ranking. This step encapsulates the most significant part of paraphrasing algorithm. In order to experiment with various filtering and ranking techniques we have implemented a dynamic system of attachable filters and sorters. This way we were able to easily produce multiple variations of our approach and evaluate all of them against one test suite. Importantly, another benefit of this dynamic modular system is that depending on user's query we can execute different sets of filters and sorters. For example, as we will see some filters could be efficiently used only for short phrases, while others are suitable for long inputs. 
 
@@ -118,7 +118,7 @@ Here each phrase of translation is followed by coverage details. These details a
 The alignment is achieved by matching the user's paraphrasing input with the machine translation output sentence. For now, we consider that user's selection matches part of unmodified translation output. Later we will describe cases when user  requests paraphrasing after manually editing the translation. The alignment procedure includes following steps:
 
 \begin{enumerate}
-  \item \textbf{Parsing output sentence}. We start by extracting coverage information from the output sentence and storing it in a separate data structure. The coverage data structure represents mapping between translation output and original sentence expressed in word indicies.
+  \item \textbf{Parsing output sentence}. We start by extracting coverage information from the output sentence and storing it in a separate data structure. The coverage data structure represents mapping between translation output and original sentence expressed in word indicies. It is possible to execute this transformation during data preprocessing described in previous section. 
   \item \textbf{Locating input}. On this step we match user's paraphrasing input with the translation. We express input words using indicies of corresponding words in translation.
   \item \textbf{Finding involved intervals}. The final step is merging results of previous two steps to find indicies of words in original sentence that correspond to user's selection. 
 \end{enumerate}
@@ -149,7 +149,7 @@ One minor problem during alignment is dealing with \emph{selections that contain
 
 Another problem is with \emph{selections that contain only some parts of phrases}. Coverage information available for translation is on phrase level and do not provide us with word by word mapping. For user's input \texttt{became the first}, our aligner will produce the same coverage information as for \texttt{became the first state}. However, the word with index 3 in original sentence means ``state'' and it is not covered by \texttt{became the first}. During current project this problem was solved by automatically extending user's input to match the whole phrases. We also considered one exceptional case, when phrase partial contains only function words. Given \texttt{the first state} as paraphrasing input, instead of extending it into \texttt{became the first state}, we reduce it by removing \texttt{the}.
 
-Finally, alignment logic complicates in case when user submits selection after manually editing translation. In this case user's input may not exactly match part of translation output. If user changes are minor, for example fixing agreement between words, our alignment approach can still be used by introducing fuzzy matches based on edit distance. While this practice is dangerous in case of short selections, with multi-word inputs we can take into account that words should match parts of translation output sequentially. For example, given \texttt{told us that war} as input, matching the word \texttt{us} should be correct for the following sentence: 
+Finally, alignment logic gets more complicated in case when user submits selection after manually editing translation. In this case user's input may not exactly match part of translation output. If user changes are minor, for example fixing agreement between words, our alignment approach can still be used by introducing fuzzy matches based on edit distance. While this practice is dangerous in case of short selections, with multi-word inputs we can take into account that words should match parts of translation output sequentially. For example, given \texttt{told us that war} as input, matching the word \texttt{us} should be correct for the following sentence: 
 
 \begin{verbatim}
 the us president told us the war on terror must come to an end
@@ -173,6 +173,63 @@ P(us|w_{5}) = P(w_{5}|us) P(us|told)
 
 Here $P(w_{i}|us)$ expresses probability of that $w_{i}$ corresponds to \texttt{us} from selection. And $P(us|s_{j})$ is probability that current word corresponds to \texttt{us}, given that previous word corresponds to $s_{j}$. Considering the input sequence \texttt{told us that war}, the second probability is higher.
 
-In cases when user edits are significant, the described approach will tag all words in translation output as ``none''. In these situations, one option is to use a word aligner like GIZA++ to re-align user's current translation with original sentence and use updated coverage information. Another option is to ignore coverage and to switch to a monolingual paraphrasing, this type of paraphrasing is not supported by our approach. Our paraphrasing approach requires the user's input to be a partial translation of original sentence. This requirement lets us to use search graph as data source for paraphrasing. Unfortunately, this constraint also doesn't let our paraphrasing approach to be used outside translation task. 
+In cases when user edits are significant, the described approach will tag all words in translation output as ``none''. In these situations, one option is to use a word aligner like GIZA++ to re-align user's current translation with original sentence and use updated coverage information. Another option is to ignore coverage and to switch to a monolingual paraphrasing, this type of paraphrasing is not supported by our approach. Our paraphrasing approach requires the user's input to be a partial translation of original sentence. This requirement lets us to use search graph as data source for paraphrasing. Unfortunately, this constraint also doesn't let our paraphrasing approach to be used outside translation task.
+
+Source code of both regular and fuzzy alignment implementations are available in project file named \textsf{aligner.py}. 
+
+\subsection{Retrieving partial paraphrases from search graph}
+
+We use the coverage information collected during alignment to construct and execute queries against search graph database. We built this SQLite database during preprocessing step. The database contains only one table which has following fields: \texttt{sentenceId, hyp, stack, back, score, transition, recombined, forward, fscore, covered, out}. These fields correspond to attributes available from the search dump file, that we described in Section 3.2. 
+
+Queries encode a number of constraints that are required to find hypotheses that are potential parts of paraphrases for user's input. These constraints are:
+
+\begin{itemize}
+  \item \emph{Hypotheses should be from the same sentence}. This basic limitation significantly reduces the search space by focusing only of the search graph representation of the sentence that user currently translates.
+  \item \emph{Hypotheses should be within the same coverage as user's input}. As discussed before it is crucial to preserve same coverage after translation. This rule is related to the paraphrasing approach using bilingual parallel corpora \cite{Callison-Burch2007}. Similarly, we consider different phrases that have same translation to be paraphrases. In our case, instead of using parallel corpus, we use information generated for only one sentence. This information encoded in search graph was generated using machine translation models, that were build using parallel corpus. This fact relates our approach to approach described by \cite{Callison-Burch2007}.
+  \item \emph{Hypotheses should be ordered by score in descending order}. This requirement ensures that hypotheses that have better partial score will appear on top of the list. While having this ordering is useful for filtering and ranking, the score value depends on translation order and that is why it cannot be considered as a sole feature for final paraphrases ranking.
+\end{itemize}
+
+While expressing the first and the last constraints in SQL is trivial, requesting hypotheses within the same coverage requires further analysis. 
+
+In order to find all hypotheses that could be used to form final paraphrasing options we can build queries for each possible separation of original coverage. However the number of possible ways to split coverage into phrases grows exponentially grows with number of words covered. For $n$ sequential words in original sentence, there are $2^{n-1}$ possible ways to group them into phrases. This could be demonstrated by defining \textsf{split (0)} and \textsf{join (1)} decisions between words, then grouping of original words could be expressed as binary sequence with length $n-1$, where $n$ is number of words. Moreover, the original coverage is not always sequential, therefore we should consider each sequential interval separately.
+
+Considering this exponential growth, starting from cases with $n > 4$ it is not feasible to build SQL queries that reflect each possible grouping. One way to solve this problem is using grouping that was used for producing translation output. We also use information about the best next step (\texttt{forward} and \texttt{fscore}) to detect the most useful grouping options. Here are descriptions of operations that are carried out to retrieve hypotheses that are used for paraphrasing, following input: \texttt{first state |2-3| to impose |4-4| such a requirement. |5-7|}.
+
+\begin{itemize}
+	\item We start by finding \emph{partial paraphrases} for the first phrase in user's selection. In our case this phrase is \texttt{first state}. Using SQL we query all hypotheses within current sentence that have coverage \texttt{|2-3|}. 
+	\item Next, for each result we follow reference to the next best hypothesis and add record it's coverage. Our goal is to collect all possible coverage types that are available for the best next steps. This way we reuse grouping that was statistically built machine during translation. For our example, two new coverage types are: \texttt{|4-4|} and \texttt{|4-5|}.
+	\item After removing coverage types that are not withing overall coverage of user's selection (in our case \texttt{|2-7|}). We run the procedure described in previous step recursively for each coverage type. Results of all queries are recorded in a dictionary data structure, where key represents coverage type and value contain pointers to the rows retrieved from database. For our example in the end we get three new coverage types: \texttt{|5-5|}, \texttt{|5-7|} and \texttt{|6-7|}. 
+\end{itemize}
+
+This process is also illustrated on Figure 3.3. While growth of options number in this case is significantly slower than considering all possible groupings, for longer inputs number of queries executed is still too high. Therefore for long selections our approach uses only grouping produced by decoder for translation output. Another option could be splitting longer inputs into small equal parts and then considering each part as a separate paraphrasing input. But this method produces too many partial paraphrasing options and it is not possible to assess all potential ways to join them in context of a real-time interactive system. 
+ 
+\begin{figure}
+ \centering 
+ \includegraphics{g/coverage-expansion.pdf}
+ \caption{Retrieving partial paraphrases with different coverage}
+\end{figure}
+
+% ? SQL queries look like
+
+\subsection{Merging partial paraphrases}
+
+After running queries we get partial paraphrases stored in a dictionary, where keys represent coverage. The next step is merging this partials in paraphrasing options. We achieve this goal by using a data structure known as finite state machine (FSM). This data structure is defined by set of states, including start and end states, and by list of transitions between these states. Our approach is similar to the usage of FSM for finding N-best candidate translations in a search graph is described in \cite{Koehn2009a} Section 9.1.2.
+
+We define one start state which refers to an empty string. Other states represent partial paraphrases (hypotheses) retrieved from search graph. Transitions between states mean adding partial paraphrase to form the final paraphrase. Transitions are only possible in a way that they maintain original coverage. For example, transition from state with coverage \texttt{|4-4|} is only possible to states with coverage \texttt{|5-5|} and \texttt{|5-7|}. Additional cost is associated with each translation. For each state the cost of outgoing transitions are high if they are not expected to lead to a good paraphrase, and the cost is low for promising paths. These costs are calculated using various features like string distance, diversity factor and language model score. For each feature there is a \emph{scorer} that assesses it for a given transition and adds the result to the final score. The scorers are dynamically attachable, therefore we can easily create many versions of paraphraser that use different combinations of features for assessing transitions. 
+
+Before constructing finite state machine, we need to clean up partial results, that contain many redundant results. We use dynamically attachable \emph{partial filters} to filter partials by similarity, function words, punctuation. The next step is adding transitions from start state to states with coverage that matches the beginning of the original overall coverage. We continue by adding transitions by maintaining the overall coverage. The end states of our FSM are the states with coverage that matches the end of the overall coverage. Part of a sample finite state machine for our example input \texttt{first state |2-3| to impose |4-4| such a requirement. |5-7|} is illustrated in Figure 3.4.
+
+\begin{figure}
+ \centering 
+ \includegraphics{g/fsm.pdf}
+ \caption{Part of a sample finite state machine}
+\end{figure}
+
+After constructing a FSM, the next step is to generate most promising paraphrasing options. In order to do so we search for $K$ best paths that start in the start state and end in one of the end states. A number of algorithms exist to solve this problem. One of the best known ones is \emph{Yen's algorithm} \cite{yen1971finding}. We used it's open source Python implementation called \emph{YanKSP} []. For each end state we find $n$ best paths, and if we define number of end states as $t$, as result we get $K = nt$ paraphrasing options. The number of end states $t$ is significantly larger for longer phrases, we compensate it by reducing $n$ for long phrases. As a result the number of final results $K$ is not too large to be analysed within a real-time system.
+
+Finally, having $K$ paraphrasing candidates our goal is to filter and sort them in order to achieve best possible final ranking. Final ranking is crucial because only limited number of top results are displayed to user. The number of results should be small enough to keep paraphrasing decision simple for the user. On this stage filtering and sorting implemented similarly to partial filters and scorers. Again we have an optionally attachable \emph{filters} and \emph{sorters}, that form final list of paraphrasing options. We will discuss existing filters, scorers and sorters in following section.
+
+\subsection{Filters, scorers and sorters}
+
 
 \bibliography{library}

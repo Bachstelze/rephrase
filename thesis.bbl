@@ -23,4 +23,9 @@ Koehn, P. and Haddow, B. (2009).
 Macklovitch, E., Lapalme, G., and Gotti, F. (2008).
 \newblock {TransSearch : What are translators looking for ?}
 
+\bibitem[Yen, 1971]{yen1971finding}
+Yen, J.~Y. (1971).
+\newblock {Finding the k shortest loopless paths in a network}.
+\newblock {\em management Science}, 17(11):712--716.
+
 \end{thebibliography}

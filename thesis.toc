@@ -31,8 +31,11 @@
 \contentsline {subsection}{\numberline {3.3.2}Request handler}{23}
 \contentsline {subsection}{\numberline {3.3.3}Input aligner}{24}
 \contentsline {subsection}{\numberline {3.3.4}Graph query execution}{24}
-\contentsline {subsection}{\numberline {3.3.5}Filters and sorters}{24}
+\contentsline {subsection}{\numberline {3.3.5}Filters, scorers and sorters}{24}
 \contentsline {section}{\numberline {3.4}Implementation details}{25}
 \contentsline {subsection}{\numberline {3.4.1}Implementing input aligner}{25}
-\contentsline {chapter}{Bibliography}{29}
-\contentsline {chapter}{Bibliography}{30}
+\contentsline {subsection}{\numberline {3.4.2}Retrieving partial paraphrases from search graph}{28}
+\contentsline {subsection}{\numberline {3.4.3}Merging partial paraphrases}{30}
+\contentsline {subsection}{\numberline {3.4.4}Filters, scorers and sorters}{32}
+\contentsline {chapter}{Bibliography}{33}
+\contentsline {chapter}{Bibliography}{34}
