@@ -196,9 +196,9 @@ In order to find all hypotheses that could be used to form final paraphrasing op
 Considering this exponential growth, starting from cases with $n > 4$ it is not feasible to build SQL queries that reflect each possible grouping. One way to solve this problem is using grouping that was used for producing translation output. We also use information about the best next step (\texttt{forward} and \texttt{fscore}) to detect the most useful grouping options. Here are descriptions of operations that are carried out to retrieve hypotheses that are used for paraphrasing, following input: \texttt{first state |2-3| to impose |4-4| such a requirement. |5-7|}.
 
 \begin{itemize}
-	\item We start by finding \emph{partial paraphrases} for the first phrase in user's selection. In our case this phrase is \texttt{first state}. Using SQL we query all hypotheses within current sentence that have coverage \texttt{|2-3|}. 
-	\item Next, for each result we follow reference to the next best hypothesis and add record it's coverage. Our goal is to collect all possible coverage types that are available for the best next steps. This way we reuse grouping that was statistically built machine during translation. For our example, two new coverage types are: \texttt{|4-4|} and \texttt{|4-5|}.
-	\item After removing coverage types that are not withing overall coverage of user's selection (in our case \texttt{|2-7|}). We run the procedure described in previous step recursively for each coverage type. Results of all queries are recorded in a dictionary data structure, where key represents coverage type and value contain pointers to the rows retrieved from database. For our example in the end we get three new coverage types: \texttt{|5-5|}, \texttt{|5-7|} and \texttt{|6-7|}. 
+    \item We start by finding \emph{partial paraphrases} for the first phrase in user's selection. In our case this phrase is \texttt{first state}. Using SQL we query all hypotheses within current sentence that have coverage \texttt{|2-3|}. 
+    \item Next, for each result we follow reference to the next best hypothesis and add record it's coverage. Our goal is to collect all possible coverage types that are available for the best next steps. This way we reuse grouping that was statistically built machine during translation. For our example, two new coverage types are: \texttt{|4-4|} and \texttt{|4-5|}.
+    \item After removing coverage types that are not withing overall coverage of user's selection (in our case \texttt{|2-7|}). We run the procedure described in previous step recursively for each coverage type. Results of all queries are recorded in a dictionary data structure, where key represents coverage type and value contain pointers to the rows retrieved from database. For our example in the end we get three new coverage types: \texttt{|5-5|}, \texttt{|5-7|} and \texttt{|6-7|}. 
 \end{itemize}
 
 This process is also illustrated on Figure 3.3. While growth of options number in this case is significantly slower than considering all possible groupings, for longer inputs number of queries executed is still too high. Therefore for long selections our approach uses only grouping produced by decoder for translation output. Another option could be splitting longer inputs into small equal parts and then considering each part as a separate paraphrasing input. But this method produces too many partial paraphrasing options and it is not possible to assess all potential ways to join them in context of a real-time interactive system. 
@@ -229,7 +229,131 @@ After constructing a FSM, the next step is to generate most promising paraphrasi
 
 Finally, having $K$ paraphrasing candidates our goal is to filter and sort them in order to achieve best possible final ranking. Final ranking is crucial because only limited number of top results are displayed to user. The number of results should be small enough to keep paraphrasing decision simple for the user. On this stage filtering and sorting implemented similarly to partial filters and scorers. Again we have an optionally attachable \emph{filters} and \emph{sorters}, that form final list of paraphrasing options. We will discuss existing filters, scorers and sorters in following section.
 
-\subsection{Filters, scorers and sorters}
+\subsection{Implementing functions}
+
+One of the requirements for this project was carrying out a number of experiments to find the set of features within a search graph that are the most useful ones for achieving feasible paraphrasing results. In order to organise these experiments we designed our paraphraser in a way that some parts of it's logic are represented by dynamically attachable functions. These functions are grouped by their use cases. Each function within such a group accepts same arguments and returns result in a same format. The groups include: \emph{filters}, \emph{partial filters}, \emph{scorers} and \emph{sorters}. To implement dynamically attachable functionality we used a variation of a classic software design pattern known as \emph{Decorator} \cite{vlissides1995design}.
+
+Here we provide a list of the implemented functions. We assign a four letter code for each function. Later these codes will be used to describe functions that were used in different experiments.
+
+\subsubsection{Partial filters}
+
+In previous sections we described how paraphrasing options are built using a finite state machine. States of this machine are hypotheses retrieved from search graph database. Before converting each hypotheses from database query results, we use partials filters to remove the ones that are not likely to be part of a good paraphrasing option. There are two ways to instantiate a partial filter. The first way is to construct it using a list of hypotheses in a format as we get it from database. Items of this list contain all features that are initially available in search graph attributes. After processing this list, partial filter will output a list in the same format with reduced number of items. The second way to instantiate a partial filter is to construct it using another partial filter. This way before applying filtering logic, our partial filter will execute another partial filter and the will use it's results as initial data for filtering. Using both constructors makes it possible to dynamically build complex filters. This design solution is the variation of the Decorator pattern, we mentioned before. Following pseudocode illustrates base class that is extended by all partial filters:
+
+\begin{verbatim}
+abstract class PartialFilter:
+    PartialFilter(Hypothesis[] hypotheses)
+    PartialFilter(PartialFilter anotherFilter)
+    def Hypothesis[] filter()
+\end{verbatim}
+
+Most of our partial filters aim to reduce original list of hypotheses by removing redundant items. Here we listed partial filters that we implemented during the project:
+
+\begin{flushleft}
+
+\textbf{\texttt{PTPF}: \textbf{Punctuation Partial Filter}} \\
+We iterate the input list and remove all punctuation and special signs for each item, also we replace multiple spaces between words with one. We remove duplicates from the resulting list and output it.\\
+\bigskip 
+
+\textbf{\texttt{SDPF}: \textbf{String Distance Partial Filter}} \\
+For each item in the list we calculate Levenshtein string distance between it and following items. If the distance is below a given threshold $t$ and it has the same coverage as current item, we remove it from the list. It's important to consider that the scores in the list are already in descending order, so we leave only the best candidates in terms of score. For all our experiments we used $t = 3$, because intuitively filtering items with longer distance we may lose good partial paraphrasing candidates. \\
+\bigskip 
+
+\textbf{\texttt{FWPF}: \textbf{Function Word Partial Filter}} \\
+For each item we remove following items if the only difference between two string is in function words. This way in the resulting list there are still function words. We use list of functions words available within NLTK library []. \\
+\bigskip 
+
+\end{flushleft} 
+
+\subsubsection{Score functions}
+
+We use score function in order to assess a transition between two steps in paraphrasing finite state machine. Similarly to partial filters score functions follow the Decorator pattern. A basic constructor for a score function requires two hypotheses that refer to source and target states. Score function outputs a normalised value between 0 and 1. 
+
+Another constructor instantiates a score function, using other score function. In this case, source and target states are extracted from previous function. Initial score is set to be equal to the score produced by previous score function. And after calculating score with current function, result equals to the average of two scores. A pseudocode for base score function class is listed here:
+
+\begin{verbatim}
+abstract class ScoreFunction:
+    ScoreFunction(Hypothesis source, Hypothesis target)
+    ScoreFunction(ScoreFunction anotherScoreFunction)
+    def float calculate()
+\end{verbatim}
 
 
-\bibliography{library}
+\begin{flushleft}
+
+\textbf{\texttt{BFSF}: \textbf{Best Forward Score Function}} \\
+This function reuses information about the best next step from search graph. It checks if target hypothesis has the same id as \texttt{forward} reference for source hypothesis. In this case it outputs 1. Otherwise it retrieves the best next hypothesis and calculates a string distance between it and target. If distance is more than $9$, function outputs 0. Otherwise it the result is calculated as $1-d/10$, where $d$ is the distance. \\
+\bigskip
+
+\textbf{\texttt{SDSF}: \textbf{Score Difference Score Function}} \\
+Function calculates the difference between scores for two states. Output is relative difference score between 0 and 1, calculated as:
+\begin{large}
+\begin{equation}
+\min(\frac{score_{t}}{2 score_{s}}, 1)
+\end{equation}
+\end{large}
+Here $score_{t}$ is the target score and $score_{s}$ is the source score. As a result output will be high if as a result of transition search graph score increases, and low otherwise.
+\bigskip
+
+
+\textbf{\texttt{LMSF}: \textbf{Language Model Score Function}} \\
+This function uses language model that was used for machine translation to score the result of merging outputs of two hypotheses. In order to get language model score we use Moses in the following way:
+
+\begin{verbatim}
+echo 'this is a test' | ./moses/bin/query ~/lm/bin.lm
+\end{verbatim}
+
+This command returns a detailed score distribution. However we use use only overall total score.
+\bigskip
+
+\end{flushleft}
+
+
+\subsubsection{Filters}
+
+In contrast with partial filters, regular filters are applied to final list of paraphrasing options. This list is generated using FSM and we still may want to remove paraphrasing candidates that are very similar. Interface of this function is very similar to the interface of partial filters. Base class extended by all filters looks like:
+
+\begin{verbatim}
+abstract class Filter:
+    Filter(Paraphrase[] options)
+    Filter(Filter anotherFilter)
+    def Paraphrase[] filter()
+\end{verbatim}
+
+Two filters implemented by us are repeating logic of the String Distance and the Function Word partial filters. They are correspondingly named \textbf{String Distance Filter} (\textbf{\texttt{SDRF}}) and \textbf{Function Word Filter} (\texttt{\textbf{FWFF}}). The only novel filter is a score based filter and it's description is provided here:
+
+
+\begin{flushleft}
+
+\textbf{\texttt{SBRF}: \textbf{Score Based Filter}} \\
+This simple filter removes item's that have a final FSM transition score which is below a predefined threshold. 
+The filter is used only in cases when number of results it too large to be handled by sorters. Threshold depends on number of items in the list.
+\bigskip
+
+\end{flushleft}
+
+\subsubsection{Sorters}
+
+Sorters are applied to the filtered list of paraphrasing candidates. These functions aim to produce best possible final ranking for the paraphrases. They have similar interface with filters, the difference is that instead of removing sorters reorder items in the resulting list. Initial list passed to sorters is already sorted by FSM transition scores. The parent class for all sorters is listed below:
+
+\begin{verbatim}
+abstract class Sorter:
+    Sorter(Paraphrase[] options)
+    Sorter(Sorter anotherSorter)
+    def Paraphrase[] sort()
+\end{verbatim}
+
+
+\begin{flushleft}
+
+\textbf{\texttt{LMBS}: \textbf{Language Model Based Sorter}} \\
+In contrast with Language Model Score Function, this sorter uses language model score for a whole sentence by replacing paraphrased part with a paraphrasing option. This way paraphrase is assessed in context of the surrounding words. Items in the list are rearranged by score in descending order. 
+\bigskip
+
+\textbf{\texttt{CBDS}: \textbf{Cluster Based Diversity Sorter}} \\
+This sorter is based on a heuristic that more diverse results are more useful for user. Indeed, a user searching for paraphrases is likely to be looking for a way to express idea in a different way, rather that trying to fix a minor spelling mistake. To achieve more contrasting results we use simple clustering approach. We group items into clusters based on word distance. The distance is calculated in a way similar to string distance, considering words as atomic units instead of characters. For clustering we use an implementation of K-Means for Python available within SciPy library []. Order within clusters is the same as in the original list. The next step after clustering is to create output list. To do so we iteratively populate an empty list, by adding the top items from each cluster. The order of clusters depends on order of their first item in the original list. This way we achieve an output where top results are different from each other, but at the same time have high scores.
+\bigskip
+
+\end{flushleft}
+
+\section{Summary}
+

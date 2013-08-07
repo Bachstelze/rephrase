@@ -5,6 +5,11 @@ Callison-Burch, C. (2007).
 \newblock {Paraphrasing and Translation Doctor of Philosophy School of
   Informatics University of Edinburgh}.
 
+\bibitem[Gamma et~al., 1995]{vlissides1995design}
+Gamma, E., Vlissides, J., Helm, R., and Johnson, R. (1995).
+\newblock {Design patterns: Elements of reusable object-oriented software}.
+\newblock {\em Reading: Addison-Wesley}, 49:120.
+
 \bibitem[Koehn, 2009]{Koehn2009a}
 Koehn, P. (2009).
 \newblock {\em {Statistical Machine Translation}}.

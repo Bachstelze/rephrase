@@ -36,6 +36,11 @@
 \contentsline {subsection}{\numberline {3.4.1}Implementing input aligner}{25}
 \contentsline {subsection}{\numberline {3.4.2}Retrieving partial paraphrases from search graph}{28}
 \contentsline {subsection}{\numberline {3.4.3}Merging partial paraphrases}{30}
-\contentsline {subsection}{\numberline {3.4.4}Filters, scorers and sorters}{32}
-\contentsline {chapter}{Bibliography}{33}
-\contentsline {chapter}{Bibliography}{34}
+\contentsline {subsection}{\numberline {3.4.4}Implementing functions}{32}
+\contentsline {subsubsection}{\numberline {3.4.4.1}Partial filters}{33}
+\contentsline {subsubsection}{\numberline {3.4.4.2}Score functions}{34}
+\contentsline {subsubsection}{\numberline {3.4.4.3}Filters}{35}
+\contentsline {subsubsection}{\numberline {3.4.4.4}Sorters}{35}
+\contentsline {section}{\numberline {3.5}Summary}{36}
+\contentsline {chapter}{\numberline {4}Evaluation}{37}
+\contentsline {chapter}{Bibliography}{38}
