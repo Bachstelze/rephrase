@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.11)  7 AUG 2013 05:14
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.11)  9 AUG 2013 04:52
 entering extended mode
 **C:/Users/Turan/Google*Drive/ED/D/git-thesis/thesis.tex
 ("C:/Users/Turan/Google Drive/ED/D/git-thesis/thesis.tex"
@@ -189,26 +189,47 @@ File: listings.cfg 2007/02/22 1.4 listings configuration
 ))
 Package: listings 2007/02/22 1.4 (Carsten Heinz)
 
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.sty"
+Package: babel 2008/07/08 v3.8m The Babel package
+
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
+File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\english.ldf"
+Language: english 2005/03/30 v3.3o English support from the babel system
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.def"
+File: babel.def 2008/07/08 v3.8m Babel common definitions
+\babel@savecnt=\count102
+\U@D=\dimen124
+)
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+))
 ("C:\Users\Turan\Google Drive\ED\D\git-thesis\thesis.aux"
 ("C:\Users\Turan\Google Drive\ED\D\git-thesis\appendix1.aux"))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 17.
-LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 17
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 18.
+LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 18
 .
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\omspzccm.fd"
 File: omspzccm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/pzccm.
 )
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -246,79 +267,79 @@ LaTeX Font Info:    ... okay on input line 17.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count102
-\scratchdimen=\dimen124
+\scratchcounter=\count103
+\scratchdimen=\dimen125
 \scratchbox=\box28
-\nofMPsegments=\count103
-\nofMParguments=\count104
+\nofMPsegments=\count104
+\nofMParguments=\count105
 \everyMPshowfont=\toks17
-\MPscratchCnt=\count105
-\MPscratchDim=\dimen125
-\MPnumerator=\count106
-\makeMPintoPDFobject=\count107
+\MPscratchCnt=\count106
+\MPscratchDim=\dimen126
+\MPnumerator=\count107
+\makeMPintoPDFobject=\count108
 \everyMPtoPDFconversion=\toks18
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count108
+\c@lstlisting=\count109
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 21.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 22.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <20.74> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 21.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 22.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 18.66588pt on input line 21.
+(Font)              scaled to size 18.66588pt on input line 22.
  <eushield-twocolour.pdf, id=1, 369.38pt x 373.395pt>
 File: eushield-twocolour.pdf Graphic file (type pdf)
 
 <use eushield-twocolour.pdf>
-Package pdftex.def Info: eushield-twocolour.pdf used on input line 21.
+Package pdftex.def Info: eushield-twocolour.pdf used on input line 22.
 (pdftex.def)             Requested size: 369.37909pt x 373.39409pt.
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/Turan/Google Dri
 ve/ED/D/git-thesis/eushield-twocolour.pdf>]
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
-(Font)              scaled to size 10.79993pt on input line 21.
+(Font)              scaled to size 10.79993pt on input line 22.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 21.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 22.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 21.
+(Font)              scaled to size 10.79993pt on input line 22.
 
 [1
 
 ] [2] [3]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <24.88> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 31.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 32.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 22.39185pt on input line 31.
+(Font)              scaled to size 22.39185pt on input line 32.
  ("C:\Users\Turan\Google Drive\ED\D\git-thesis\thesis.toc"
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
-LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 2.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
+LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 3.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1ptmcm.fd"
 File: ot1ptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ptmcm.
 )
-LaTeX Font Info:    Try loading font information for OML+ptmcm on input line 2.
+LaTeX Font Info:    Try loading font information for OML+ptmcm on input line 3.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\omlptmcm.fd"
 File: omlptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ptmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+psycm on input line 2.
+LaTeX Font Info:    Try loading font information for OMX+psycm on input line 3.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\omxpsycm.fd"
 File: omxpsycm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/psycm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
  [4
 
 ])
@@ -458,11 +479,72 @@ LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <12> not available
  [33] [34] [35]) ("C:\Users\Turan\Google Drive\ED\D\git-thesis\chap4.tex"
 [36]
 Chapter 4.
-) [37
+[37
 
 ]
+Overfull \hbox (28.07358pt too wide) in paragraph at lines 27--27
+[]\OT1/pcr/m/n/12 < /fs/vali1/wmt13-en-ru/evaluation/newstest2013.input.lc.1 > 
+~/rus_out_1[] 
+ []
+
+
+Overfull \hbox (9.71364pt too wide) in paragraph at lines 44--44
+[]\OT1/pcr/m/n/12 1 -cube-pruning-pop-limit 5000 -s 5000 -threads 24  -ttable-l
+imit 100[] 
+ []
+
+[38] <g/rus-sample1.pdf, id=285, 570.13pt x 387.4475pt>
+File: g/rus-sample1.pdf Graphic file (type pdf)
+
+<use g/rus-sample1.pdf>
+Package pdftex.def Info: g/rus-sample1.pdf used on input line 54.
+(pdftex.def)             Requested size: 427.59645pt x 290.5849pt.
+
+Overfull \hbox (15.03148pt too wide) in paragraph at lines 54--55
+ [][] 
+ []
+
+[39] <g/eval-auto-results.pdf, id=289, 584.1825pt x 457.71pt>
+File: g/eval-auto-results.pdf Graphic file (type pdf)
+
+<use g/eval-auto-results.pdf>
+Package pdftex.def Info: g/eval-auto-results.pdf used on input line 69.
+(pdftex.def)             Requested size: 438.13579pt x 343.28166pt.
+
+Overfull \hbox (25.57082pt too wide) in paragraph at lines 69--70
+ [][] 
+ []
+
+[40 <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/rus-sample1.pdf>] [41 <C:/Us
+ers/Turan/Google Drive/ED/D/git-thesis/g/eval-auto-results.pdf>]
+<g/phrase-size-chart.png, id=324, 685.8122pt x 381.67593pt>
+File: g/phrase-size-chart.png Graphic file (type png)
+
+<use g/phrase-size-chart.png>
+Package pdftex.def Info: g/phrase-size-chart.png used on input line 82.
+(pdftex.def)             Requested size: 411.4905pt x 229.00732pt.
+ [42 <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/phrase-size-chart.png>] <g/
+man-eval.png, id=329, 522.45187pt x 609.02531pt>
+File: g/man-eval.png Graphic file (type png)
+
+<use g/man-eval.png>
+Package pdftex.def Info: g/man-eval.png used on input line 96.
+(pdftex.def)             Requested size: 417.96207pt x 487.2209pt.
+
+Overfull \hbox (5.3971pt too wide) in paragraph at lines 96--97
+ [][] 
+ []
+
+<g/man-eval-result.pdf, id=330, 319.1925pt x 147.55125pt>
+File: g/man-eval-result.pdf Graphic file (type pdf)
+
+<use g/man-eval-result.pdf>
+Package pdftex.def Info: g/man-eval-result.pdf used on input line 108.
+(pdftex.def)             Requested size: 255.35434pt x 118.04114pt.
+) [43] [44 <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/man-eval.png> <C:/Use
+rs/Turan/Google Drive/ED/D/git-thesis/g/man-eval-result.pdf>] [45]
 No file appendix1.tex.
-("C:\Users\Turan\Google Drive\ED\D\git-thesis\thesis.bbl") [38
+("C:\Users\Turan\Google Drive\ED\D\git-thesis\thesis.bbl") [46
 
 
 
@@ -470,13 +552,13 @@ No file appendix1.tex.
 ("C:\Users\Turan\Google Drive\ED\D\git-thesis\thesis.aux"
 ("C:\Users\Turan\Google Drive\ED\D\git-thesis\appendix1.aux")) ) 
 Here is how much of TeX's memory you used:
- 4958 strings out of 494045
- 74657 string characters out of 3145968
- 132307 words of memory out of 3000000
- 8138 multiletter control sequences out of 15000+200000
+ 5281 strings out of 494045
+ 78916 string characters out of 3145968
+ 139150 words of memory out of 3000000
+ 8444 multiletter control sequences out of 15000+200000
  62157 words of font info for 117 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 43i,6n,41p,1278b,329s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,6n,41p,1561b,334s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Fil
 es (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files (x86)/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTe
@@ -490,9 +572,9 @@ pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Prog
 ram Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX
  2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (44 pages, 420676 bytes).
+Output written on thesis.pdf (52 pages, 533285 bytes).
 PDF statistics:
- 326 PDF objects out of 1000 (max. 8388607)
+ 396 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 71 words of extra memory for PDF output out of 10000 (max. 10000000)
 

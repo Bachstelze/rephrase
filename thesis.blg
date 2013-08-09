@@ -1,10 +1,6 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: thesis.aux
 A level-1 auxiliary file: appendix1.aux
 The style file: apalike.bst
-Illegal, another \bibdata command---line 95 of file thesis.aux
- : \bibdata
- :         {library}
-I'm skipping whatever remains of this command
 Database file #1: library.bib
 Warning--empty journal in Callison-Burch2007
 Warning--empty publisher in Koehn2009a
@@ -12,4 +8,4 @@ Warning--empty journal in Koehn2010
 Warning--there's a number but no volume in Koehn2010
 Warning--empty journal in KoehnHaddow2009
 Warning--empty journal in Macklovitch2008
-(There was 1 error message)
+(There were 6 warnings)
