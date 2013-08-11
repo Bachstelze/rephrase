@@ -51,4 +51,11 @@
 \contentsline {section}{\numberline {4.2}Manual evaluation}{43}
 \contentsline {subsection}{\numberline {4.2.1}Manual evaluation methodology}{43}
 \contentsline {subsection}{\numberline {4.2.2}Analysing manual evaluation results}{45}
-\contentsline {chapter}{Bibliography}{46}
+\contentsline {chapter}{\numberline {5}Interactive Paraphrasing}{46}
+\contentsline {section}{\numberline {5.1}Handling user feedback}{46}
+\contentsline {section}{\numberline {5.2}Evaluation}{47}
+\contentsline {section}{\numberline {5.3}Specified paraphrasing requests}{48}
+\contentsline {chapter}{\numberline {6}Conclusion}{51}
+\contentsline {section}{\numberline {6.1}Summary}{51}
+\contentsline {section}{\numberline {6.2}Future work}{52}
+\contentsline {chapter}{Bibliography}{53}
