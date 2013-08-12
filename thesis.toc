@@ -32,7 +32,7 @@
 \contentsline {subsection}{\numberline {3.3.2}Request handler}{21}
 \contentsline {subsection}{\numberline {3.3.3}Input aligner}{22}
 \contentsline {subsection}{\numberline {3.3.4}Graph query execution}{22}
-\contentsline {subsection}{\numberline {3.3.5}Filters, scorers and sorters}{22}
+\contentsline {subsection}{\numberline {3.3.5}Filters, score functions and sorters}{22}
 \contentsline {section}{\numberline {3.4}Implementation details}{23}
 \contentsline {subsection}{\numberline {3.4.1}Implementing input aligner}{23}
 \contentsline {subsection}{\numberline {3.4.2}Retrieving partial paraphrases from search graph}{26}
@@ -42,7 +42,6 @@
 \contentsline {subsubsection}{\numberline {3.4.4.2}Score functions}{32}
 \contentsline {subsubsection}{\numberline {3.4.4.3}Filters}{33}
 \contentsline {subsubsection}{\numberline {3.4.4.4}Sorters}{33}
-\contentsline {section}{\numberline {3.5}Summary}{34}
 \contentsline {chapter}{\numberline {4}Evaluation}{35}
 \contentsline {section}{\numberline {4.1}Automatic evaluation}{35}
 \contentsline {subsection}{\numberline {4.1.1}Generating test cases}{36}

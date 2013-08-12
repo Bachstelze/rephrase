@@ -73,6 +73,14 @@ Koehn, P. and Haddow, B. (2009).
 \newblock {Interactive Assistance to Human Translators using Statistical
   Machine Translation Methods}.
 
+\bibitem[Koehn et~al., 2007]{koehn2007moses}
+Koehn, P., Hoang, H., Birch, A., Callison-Burch, C., Federico, M., Bertoldi,
+  N., Cowan, B., Shen, W., Moran, C., Zens, R., and Others (2007).
+\newblock {Moses: Open source toolkit for statistical machine translation}.
+\newblock In {\em Proceedings of the 45th Annual Meeting of the ACL on
+  Interactive Poster and Demonstration Sessions}, pages 177--180. Association
+  for Computational Linguistics.
+
 \bibitem[Langlais et~al., 2000]{langlais2000transtype}
 Langlais, P., Foster, G., and Lapalme, G. (2000).
 \newblock {TransType: a computer-aided translation typing system}.
@@ -98,6 +106,13 @@ Pang, B., Knight, K., and Marcu, D. (2003).
   Chapter of the Association for Computational Linguistics on Human Language
   Technology-Volume 1}, pages 102--109. Association for Computational
   Linguistics.
+
+\bibitem[Simard and Macklovitch, 2005]{simard2005studying}
+Simard, M. and Macklovitch, E. (2005).
+\newblock {Studying the Human Translation Process through the TransSearch
+  Log-Files.}
+\newblock In {\em AAAI Spring Symposium: Knowledge Collection from Volunteer
+  Contributors}, pages 70--77.
 
 \bibitem[Yen, 1971]{yen1971finding}
 Yen, J.~Y. (1971).

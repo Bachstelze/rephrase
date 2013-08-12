@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.11)  12 AUG 2013 10:10
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.11)  12 AUG 2013 19:04
 entering extended mode
 **C:/Users/Turan/Google*Drive/ED/D/git-thesis/thesis.tex
 ("C:/Users/Turan/Google Drive/ED/D/git-thesis/thesis.tex"
@@ -430,10 +430,10 @@ Chapter 3.
 File: g/system-outline.pdf Graphic file (type pdf)
 
 <use g/system-outline.pdf>
-Package pdftex.def Info: g/system-outline.pdf used on input line 73.
+Package pdftex.def Info: g/system-outline.pdf used on input line 76.
 (pdftex.def)             Requested size: 491.83629pt x 282.05305pt.
 
-Overfull \hbox (79.27132pt too wide) in paragraph at lines 73--74
+Overfull \hbox (79.27132pt too wide) in paragraph at lines 76--77
  [][] 
  []
 
@@ -441,35 +441,35 @@ Overfull \hbox (79.27132pt too wide) in paragraph at lines 73--74
 <g/screenshot.png, id=172, 812.28468pt x 714.41907pt>
 File: g/screenshot.png Graphic file (type png)
  <use g/screenshot.png>
-Package pdftex.def Info: g/screenshot.png used on input line 83.
+Package pdftex.def Info: g/screenshot.png used on input line 86.
 (pdftex.def)             Requested size: 406.14134pt x 357.20866pt.
 
 [21 <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/screenshot.png>] [22]
 [23] [24] [25]
-Overfull \hbox (9.71364pt too wide) in paragraph at lines 182--183
+Overfull \hbox (9.71364pt too wide) in paragraph at lines 185--186
 \OT1/pcr/m/n/12 sentenceId, hyp, stack, back, score, transition, recombined, fo
 rward,
  []
 
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 187.
+(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 190.
 
 [26] [27] <g/coverage-expansion.pdf, id=197, 343.2825pt x 194.7275pt>
 File: g/coverage-expansion.pdf Graphic file (type pdf)
 
 <use g/coverage-expansion.pdf>
-Package pdftex.def Info: g/coverage-expansion.pdf used on input line 208.
+Package pdftex.def Info: g/coverage-expansion.pdf used on input line 211.
 (pdftex.def)             Requested size: 343.28165pt x 194.727pt.
  [28 <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/coverage-expansion.pdf>] <g
 /fsm.pdf, id=226, 409.53pt x 203.76125pt>
 File: g/fsm.pdf Graphic file (type pdf)
 
 <use g/fsm.pdf>
-Package pdftex.def Info: g/fsm.pdf used on input line 224.
+Package pdftex.def Info: g/fsm.pdf used on input line 225.
 (pdftex.def)             Requested size: 409.52899pt x 203.76074pt.
  [29] [30 <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/fsm.pdf>]
 LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 253.
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 254.
  [31] [32] [33]) ("C:\Users\Turan\Google Drive\ED\D\git-thesis\chap4.tex"
 [34]
 Chapter 4.
@@ -580,10 +580,10 @@ No file appendix1.tex.
 ("C:\Users\Turan\Google Drive\ED\D\git-thesis\thesis.aux"
 ("C:\Users\Turan\Google Drive\ED\D\git-thesis\appendix1.aux")) ) 
 Here is how much of TeX's memory you used:
- 5331 strings out of 494045
- 80301 string characters out of 3145968
- 140520 words of memory out of 3000000
- 8486 multiletter control sequences out of 15000+200000
+ 5337 strings out of 494045
+ 80445 string characters out of 3145968
+ 139594 words of memory out of 3000000
+ 8492 multiletter control sequences out of 15000+200000
  62157 words of font info for 117 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  43i,6n,41p,1561b,334s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -600,7 +600,7 @@ pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Prog
 ram Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX
  2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (58 pages, 683202 bytes).
+Output written on thesis.pdf (58 pages, 683846 bytes).
 PDF statistics:
  419 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
