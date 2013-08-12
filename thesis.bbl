@@ -1,14 +1,63 @@
 \begin{thebibliography}{}
 
+\bibitem[Barrachina et~al., 2009]{barrachina2009statistical}
+Barrachina, S., Bender, O., Casacuberta, F., Civera, J., Cubel, E., Khadivi,
+  S., Lagarda, A., Ney, H., Tom\'{a}s, J., Vidal, E., and Others (2009).
+\newblock {Statistical approaches to computer-assisted translation}.
+\newblock {\em Computational Linguistics}, 35(1):3--28.
+
+\bibitem[Barzilay and McKeown, 2001]{barzilay2001extracting}
+Barzilay, R. and McKeown, K.~R. (2001).
+\newblock {Extracting paraphrases from a parallel corpus}.
+\newblock In {\em Proceedings of the 39th Annual Meeting on Association for
+  Computational Linguistics}, pages 50--57. Association for Computational
+  Linguistics.
+
 \bibitem[Callison-Burch, 2007]{Callison-Burch2007}
 Callison-Burch, C. (2007).
 \newblock {Paraphrasing and Translation Doctor of Philosophy School of
   Informatics University of Edinburgh}.
 
+\bibitem[Dolan et~al., 2004]{dolan2004unsupervised}
+Dolan, B., Quirk, C., and Brockett, C. (2004).
+\newblock {Unsupervised construction of large paraphrase corpora: Exploiting
+  massively parallel news sources}.
+\newblock In {\em Proceedings of the 20th international conference on
+  Computational Linguistics}, page 350. Association for Computational
+  Linguistics.
+
+\bibitem[Dolan and Brockett, 2005]{dolan2005automatically}
+Dolan, W.~B. and Brockett, C. (2005).
+\newblock {Automatically constructing a corpus of sentential paraphrases}.
+\newblock In {\em Proc. of IWP}.
+
+\bibitem[Federico et~al., 2012]{federico2012measuring}
+Federico, M., Cattelan, A., and Trombetti, M. (2012).
+\newblock {Measuring user productivity in machine translation enhanced computer
+  assisted translation}.
+\newblock In {\em Tenth Biennial Conference of the Association for Machine
+  Translation in the Americas}.
+
 \bibitem[Gamma et~al., 1995]{vlissides1995design}
 Gamma, E., Vlissides, J., Helm, R., and Johnson, R. (1995).
 \newblock {Design patterns: Elements of reusable object-oriented software}.
 \newblock {\em Reading: Addison-Wesley}, 49:120.
+
+\bibitem[Guerberof, 2009]{guerberof2009productivity}
+Guerberof, A. (2009).
+\newblock {Productivity and quality in MT post-editing}.
+\newblock In {\em MT Summit XII-Workshop: Beyond Translation Memories: New
+  Tools for Translators MT}.
+
+\bibitem[Harris, 1954]{harris1954distributional}
+Harris, Z. (1954).
+\newblock {\em {Distributional structure}}.
+\newblock World.
+
+\bibitem[Knight, 1999]{knight1999decoding}
+Knight, K. (1999).
+\newblock {Decoding complexity in word-replacement translation models}.
+\newblock {\em Computational Linguistics}, 25(4):607--615.
 
 \bibitem[Koehn, 2009]{Koehn2009a}
 Koehn, P. (2009).
@@ -24,9 +73,31 @@ Koehn, P. and Haddow, B. (2009).
 \newblock {Interactive Assistance to Human Translators using Statistical
   Machine Translation Methods}.
 
+\bibitem[Langlais et~al., 2000]{langlais2000transtype}
+Langlais, P., Foster, G., and Lapalme, G. (2000).
+\newblock {TransType: a computer-aided translation typing system}.
+\newblock In {\em Proceedings of the 2000 NAACL-ANLP Workshop on Embedded
+  machine translation systems-Volume 5}, pages 46--51. Association for
+  Computational Linguistics.
+
+\bibitem[Lin and Pantel, 2001]{lin2001dirt}
+Lin, D. and Pantel, P. (2001).
+\newblock {Discovery of inference rules from text}.
+\newblock In {\em Proceedings of the seventh ACM SIGKDD international
+  conference on Knowledge discovery and data mining}, pages 323--328. ACM.
+
 \bibitem[Macklovitch et~al., 2008]{Macklovitch2008}
 Macklovitch, E., Lapalme, G., and Gotti, F. (2008).
 \newblock {TransSearch : What are translators looking for ?}
+
+\bibitem[Pang et~al., 2003]{pang2003syntax}
+Pang, B., Knight, K., and Marcu, D. (2003).
+\newblock {Syntax-based alignment of multiple translations: Extracting
+  paraphrases and generating new sentences}.
+\newblock In {\em Proceedings of the 2003 Conference of the North American
+  Chapter of the Association for Computational Linguistics on Human Language
+  Technology-Volume 1}, pages 102--109. Association for Computational
+  Linguistics.
 
 \bibitem[Yen, 1971]{yen1971finding}
 Yen, J.~Y. (1971).

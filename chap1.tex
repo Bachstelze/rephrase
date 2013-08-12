@@ -2,34 +2,24 @@
   
 \section{Motivation}
 
-Today, taking advantage of advancements in machine translation, we can read and understand text in languages unknown to us. However, producing a high quality translation is a task that is still solved by humans. Computer Aided Translation (CAT) systems aim to support and assist translators, providing them with tools that partially automate and simplify their workflow. Demand for these systems is huge, each year billions are spent on translation by international organisations such as European Union. 
+Today, taking advantage of achievements in machine translation, we can read and understand text in languages unknown to us. However, high quality translation still needs involvement of human translators. Computer Aided Translation (CAT) aims to support and assist translators, providing them with tools that partially automate and simplify their workflow. Demand for these tools is huge, each year international organisations such as European Union spend billions on translation services. 
 
-Several assistance ways, that could be offered by a CAT system, were introduced since investigation of the question began. The most popular ones are sentence-completion and post-editing. While the first approach is providing suggestions while user is typing translation, the second approach prefills text input area with a machine translation. 
+Over past years researchers introduced several ways to aid translators. The most popular ones are interactive machine translation and post-editing. The first approach provides translation suggestions as user types, while the second approach initiates input area with a machine translation. 
 
-In this report we present a novel assistance way that aims to help translator to fix an initial machine generated translation, by providing paraphrases for any user-specified part of the sentence.
+During current project we developed and evaluated a novel assistance way that aims to help translators to improve a machine translation, by paraphrasing any user-specified part of the sentence.
 
-Paraphrasing is the process of  representing the same idea with different words. Some recent publications suggest that paraphrasing and translation tasks are closely related and information used to perform one task, can be useful for another (ccb). Considering this we are introducing paraphrasing approach that efficiently reuses the information available after machine translation process which output is used to provide post-editing assistance within a CAT system.
+Paraphrasing is a process of representing the same idea with different words. Some recent publications suggest that paraphrasing and translation tasks are closely related. Moreover, information used to perform one task, can be useful for another \cite{Callison-Burch2007}. 
 
-Moreover, taking advantage of interactivity of a CAT process, we investigated paraphrasing as an interactive task, implementing a system that accepts and responds to user's feedback on the paraphrases that were initially produced.
-
-We will also describe a novel automatic evaluation approach that we used to test feasibility and usefulness of paraphrasing results. Outcomes of a set of user studies will be provided to back up the results of automatic evaluation.
+In this report we will introduce a paraphrasing approach that efficiently reuses outcomes of the machine translation. Also, we will describe how paraphrasing performance can be improved within an interactive translation environment, by considering user feedback on the results. Finally, we will present a novel automatic evaluation approach that we used to test feasibility and usefulness of our paraphrasing tool. To confirm the automatic evaluation results we carried out several user studies. We will share outcomes of these experiments and discuss how they correlate with our previous findings. 
 
 \section{Overview}
 
-In this section we would like to provide an outline of the report. 
+In this section we provide an outline of the report. We will start Chapter 2 by introducing background material that aims to provide required information about the context of our project. We will describe recent advancements in Computer Aided Translation and relate existing assistance tools to our paraphrasing service. Next we will provide references to previous publications on paraphrasing. We will also discuss some basic concepts of machine translation, focusing on the decoding process. The data structure generated during this process is known as search graph and it is used by us as the main source for paraphrasing. 
 
-We will start the following chapter by introducing background material in the next chapter. Recent advancements in CAT will be presented and references to previous publications about paraphrasing will be provided. We will also discuss some basis concepts of machine translation, particularly Search Graph representation, which will be used by us to solve paraphrasing task. 
+In Chapter 3 we will describe the work that was carried out in scope of current project. Firstly, we will start by discussing design of our approach and possible ways of integration with existing CAT tools. We will continue by providing implementation details for each component of our initial design. In this chapter we will also focus on challenging problems, that were discovered during design and implementation stages, and their solutions.
 
-In the next chapter we will focus on providing description of work that was done in scope of our project. First, we will start by discussing design of our approach and explaining it's possible ways of integration with existing CAT systems. We will continue by providing details of implementation of our design. Description of challenging problems, that were solved during design and implementation stages,  and their solutions will be given as well.
+We will present our evaluation methodology in Chapter 4. We will provide description of an automatic evaluation process which was carried out by us during the project. Furthermore, we will presents evaluation results for ten different versions of our paraphrasing algorithm. We will continue by discussing advantages and disadvantages of the automatic evaluation. Finally, we will provide results of user studies that confirm our previous results.
 
-We will present our evaluation methodology, stating results of testing various versions of our paraphrasing algorithm in the Chapter 4.  This includes description of an automatic evaluation framework which was implemented by us during the project, it's advantages and disadvantages. 
-Next, we will provide results of a set of user studies carried out by us in order to support results of automatic evaluation. 
+In Chapter 5 we will present an improved paraphrasing approach that responds to user feedback in order to provide more relevant results. We will also describe a modification that we applied to our automatic evaluation tool in order to support this new feature. We will finish this chapter by introducing another interactive feature, that lets users to make specified paraphrasing requests.  
 
-Following chapter will introduce novel experiments by making paraphrasing within a CAT system more interactive. Specifically, we will present a design and implementation of a feature that lets a user to instantly interact with  the system and provide improved results. In this chapter we will discuss "Show More Like This" button that was added by us to the paraphrases list displayed to a user, which is similar to ideas of relevance feedback () in Information Retrieval in order to provide user with more relevant paraphrases. A modification that was made to our automatic evaluation framework in order to support this new feature will be also introduced, as well as results of both  automatic and manual evaluation.  
-
-Next, we will look into another way of adding more interactivity to the user interface of the paraphrasing functionality, by implementing and adaptive paraphrase button that will let user to initially suggest us the reason of the paraphrasing request. We will discuss situations when users might find paraphrasing functionality useful interacting with a CAT system, providing results of user studies.
-
-In our final chapter we will conclude our report and suggest interesting directions for the future work. 
-
-
-
+Finally, in Chapter 6 we will conclude our report and suggest interesting directions for future work. 

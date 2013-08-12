@@ -2,60 +2,60 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}
 \contentsline {section}{\numberline {1.1}Motivation}{1}
 \contentsline {section}{\numberline {1.2}Overview}{2}
-\contentsline {chapter}{\numberline {2}Background}{4}
-\contentsline {section}{\numberline {2.1}Computer Aided Translation}{4}
-\contentsline {subsection}{\numberline {2.1.1}Interactive Machine Translation}{5}
-\contentsline {subsection}{\numberline {2.1.2}Post-Editing}{5}
-\contentsline {subsection}{\numberline {2.1.3}Bilingual concordancer}{6}
-\contentsline {subsection}{\numberline {2.1.4}Other assistance ways}{6}
-\contentsline {subsection}{\numberline {2.1.5}Summary}{7}
-\contentsline {section}{\numberline {2.2}Paraphrasing Approaches}{7}
-\contentsline {subsection}{\numberline {2.2.1}Data-driven paraphrasing}{7}
-\contentsline {subsection}{\numberline {2.2.2}Multiple translations}{8}
-\contentsline {subsection}{\numberline {2.2.3}Bilingual parallel corpus}{9}
-\contentsline {subsection}{\numberline {2.2.4}Other data-driven paraphrasing approaches}{11}
-\contentsline {subsection}{\numberline {2.2.5}Summary}{12}
-\contentsline {section}{\numberline {2.3}Decoding and search graph}{12}
-\contentsline {subsection}{\numberline {2.3.1}A brief introduction to Statistical Machine Translation}{13}
-\contentsline {subsection}{\numberline {2.3.2}Decoding}{14}
-\contentsline {subsection}{\numberline {2.3.3}Search graph}{14}
-\contentsline {subsection}{\numberline {2.3.4}Hypothesis recombination}{15}
-\contentsline {subsection}{\numberline {2.3.5}Pruning}{16}
-\contentsline {subsection}{\numberline {2.3.6}Summary}{16}
-\contentsline {chapter}{\numberline {3}Design and implementation}{18}
-\contentsline {section}{\numberline {3.1}Analysing requirements}{18}
-\contentsline {section}{\numberline {3.2}Preparing data}{20}
-\contentsline {subsection}{\numberline {3.2.1}Retrieving search graph dump file}{20}
-\contentsline {subsection}{\numberline {3.2.2}Preprocessing data for paraphrasing}{21}
-\contentsline {section}{\numberline {3.3}Project design outline}{22}
-\contentsline {subsection}{\numberline {3.3.1}Sending requests from client}{23}
-\contentsline {subsection}{\numberline {3.3.2}Request handler}{23}
-\contentsline {subsection}{\numberline {3.3.3}Input aligner}{24}
-\contentsline {subsection}{\numberline {3.3.4}Graph query execution}{24}
-\contentsline {subsection}{\numberline {3.3.5}Filters, scorers and sorters}{24}
-\contentsline {section}{\numberline {3.4}Implementation details}{25}
-\contentsline {subsection}{\numberline {3.4.1}Implementing input aligner}{25}
-\contentsline {subsection}{\numberline {3.4.2}Retrieving partial paraphrases from search graph}{28}
-\contentsline {subsection}{\numberline {3.4.3}Merging partial paraphrases}{30}
-\contentsline {subsection}{\numberline {3.4.4}Implementing functions}{32}
-\contentsline {subsubsection}{\numberline {3.4.4.1}Partial filters}{33}
-\contentsline {subsubsection}{\numberline {3.4.4.2}Score functions}{34}
-\contentsline {subsubsection}{\numberline {3.4.4.3}Filters}{35}
-\contentsline {subsubsection}{\numberline {3.4.4.4}Sorters}{35}
-\contentsline {section}{\numberline {3.5}Summary}{36}
-\contentsline {chapter}{\numberline {4}Evaluation}{37}
-\contentsline {section}{\numberline {4.1}Automatic evaluation}{37}
-\contentsline {subsection}{\numberline {4.1.1}Generating test cases}{38}
-\contentsline {subsection}{\numberline {4.1.2}Results of automatic evaluation}{39}
-\contentsline {subsection}{\numberline {4.1.3}Analysing automatic evaluation results}{40}
-\contentsline {section}{\numberline {4.2}Manual evaluation}{43}
-\contentsline {subsection}{\numberline {4.2.1}Manual evaluation methodology}{43}
-\contentsline {subsection}{\numberline {4.2.2}Analysing manual evaluation results}{45}
-\contentsline {chapter}{\numberline {5}Interactive Paraphrasing}{46}
-\contentsline {section}{\numberline {5.1}Handling user feedback}{46}
-\contentsline {section}{\numberline {5.2}Evaluation}{47}
-\contentsline {section}{\numberline {5.3}Specified paraphrasing requests}{48}
-\contentsline {chapter}{\numberline {6}Conclusion}{51}
-\contentsline {section}{\numberline {6.1}Summary}{51}
-\contentsline {section}{\numberline {6.2}Future work}{52}
-\contentsline {chapter}{Bibliography}{53}
+\contentsline {chapter}{\numberline {2}Background}{3}
+\contentsline {section}{\numberline {2.1}Computer Aided Translation}{3}
+\contentsline {subsection}{\numberline {2.1.1}Interactive Machine Translation}{3}
+\contentsline {subsection}{\numberline {2.1.2}Post-Editing}{4}
+\contentsline {subsection}{\numberline {2.1.3}Bilingual concordancer}{5}
+\contentsline {subsection}{\numberline {2.1.4}Other assistance ways}{5}
+\contentsline {subsection}{\numberline {2.1.5}Summary}{6}
+\contentsline {section}{\numberline {2.2}Paraphrasing Approaches}{6}
+\contentsline {subsection}{\numberline {2.2.1}Data-driven paraphrasing}{6}
+\contentsline {subsection}{\numberline {2.2.2}Multiple translations}{7}
+\contentsline {subsection}{\numberline {2.2.3}Bilingual parallel corpus}{8}
+\contentsline {subsection}{\numberline {2.2.4}Other data-driven paraphrasing approaches}{10}
+\contentsline {subsection}{\numberline {2.2.5}Summary}{11}
+\contentsline {section}{\numberline {2.3}Decoding and search graph}{11}
+\contentsline {subsection}{\numberline {2.3.1}A brief introduction to Statistical Machine Translation}{11}
+\contentsline {subsection}{\numberline {2.3.2}Decoding}{12}
+\contentsline {subsection}{\numberline {2.3.3}Search graph}{12}
+\contentsline {subsection}{\numberline {2.3.4}Hypothesis recombination}{13}
+\contentsline {subsection}{\numberline {2.3.5}Pruning}{14}
+\contentsline {subsection}{\numberline {2.3.6}Summary}{15}
+\contentsline {chapter}{\numberline {3}Design and implementation}{16}
+\contentsline {section}{\numberline {3.1}Analysing requirements}{16}
+\contentsline {section}{\numberline {3.2}Preparing data}{18}
+\contentsline {subsection}{\numberline {3.2.1}Retrieving search graph dump file}{18}
+\contentsline {subsection}{\numberline {3.2.2}Preprocessing data for paraphrasing}{19}
+\contentsline {section}{\numberline {3.3}Project design outline}{20}
+\contentsline {subsection}{\numberline {3.3.1}Sending requests from client}{21}
+\contentsline {subsection}{\numberline {3.3.2}Request handler}{21}
+\contentsline {subsection}{\numberline {3.3.3}Input aligner}{22}
+\contentsline {subsection}{\numberline {3.3.4}Graph query execution}{22}
+\contentsline {subsection}{\numberline {3.3.5}Filters, scorers and sorters}{22}
+\contentsline {section}{\numberline {3.4}Implementation details}{23}
+\contentsline {subsection}{\numberline {3.4.1}Implementing input aligner}{23}
+\contentsline {subsection}{\numberline {3.4.2}Retrieving partial paraphrases from search graph}{26}
+\contentsline {subsection}{\numberline {3.4.3}Merging partial paraphrases}{28}
+\contentsline {subsection}{\numberline {3.4.4}Implementing functions}{30}
+\contentsline {subsubsection}{\numberline {3.4.4.1}Partial filters}{31}
+\contentsline {subsubsection}{\numberline {3.4.4.2}Score functions}{32}
+\contentsline {subsubsection}{\numberline {3.4.4.3}Filters}{33}
+\contentsline {subsubsection}{\numberline {3.4.4.4}Sorters}{33}
+\contentsline {section}{\numberline {3.5}Summary}{34}
+\contentsline {chapter}{\numberline {4}Evaluation}{35}
+\contentsline {section}{\numberline {4.1}Automatic evaluation}{35}
+\contentsline {subsection}{\numberline {4.1.1}Generating test cases}{36}
+\contentsline {subsection}{\numberline {4.1.2}Results of automatic evaluation}{37}
+\contentsline {subsection}{\numberline {4.1.3}Analysing automatic evaluation results}{38}
+\contentsline {section}{\numberline {4.2}Manual evaluation}{41}
+\contentsline {subsection}{\numberline {4.2.1}Manual evaluation methodology}{41}
+\contentsline {subsection}{\numberline {4.2.2}Analysing manual evaluation results}{43}
+\contentsline {chapter}{\numberline {5}Interactive Paraphrasing}{44}
+\contentsline {section}{\numberline {5.1}Handling user feedback}{44}
+\contentsline {section}{\numberline {5.2}Evaluation}{45}
+\contentsline {section}{\numberline {5.3}Specified paraphrasing requests}{46}
+\contentsline {chapter}{\numberline {6}Conclusion}{49}
+\contentsline {section}{\numberline {6.1}Summary}{49}
+\contentsline {section}{\numberline {6.2}Future work}{50}
+\contentsline {chapter}{Bibliography}{51}
