@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.11)  12 AUG 2013 19:04
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.11)  14 AUG 2013 10:59
 entering extended mode
 **C:/Users/Turan/Google*Drive/ED/D/git-thesis/thesis.tex
 ("C:/Users/Turan/Google Drive/ED/D/git-thesis/thesis.tex"
@@ -476,25 +476,24 @@ Chapter 4.
 [35
 
 ]
-Overfull \hbox (28.07358pt too wide) in paragraph at lines 27--27
+Overfull \hbox (28.07358pt too wide) in paragraph at lines 28--28
 []\OT1/pcr/m/n/12 < /fs/vali1/wmt13-en-ru/evaluation/newstest2013.input.lc.1 > 
 ~/rus_out_1[] 
  []
 
-
-Overfull \hbox (9.71364pt too wide) in paragraph at lines 44--44
+[36]
+Overfull \hbox (9.71364pt too wide) in paragraph at lines 45--45
 []\OT1/pcr/m/n/12 1 -cube-pruning-pop-limit 5000 -s 5000 -threads 24  -ttable-l
 imit 100[] 
  []
 
-[36] <g/rus-sample1.pdf, id=278, 570.13pt x 387.4475pt>
+<g/rus-sample1.pdf, id=278, 570.13pt x 387.4475pt>
 File: g/rus-sample1.pdf Graphic file (type pdf)
-
-<use g/rus-sample1.pdf>
-Package pdftex.def Info: g/rus-sample1.pdf used on input line 54.
+ <use g/rus-sample1.pdf>
+Package pdftex.def Info: g/rus-sample1.pdf used on input line 55.
 (pdftex.def)             Requested size: 427.59645pt x 290.5849pt.
 
-Overfull \hbox (15.03148pt too wide) in paragraph at lines 54--55
+Overfull \hbox (15.03148pt too wide) in paragraph at lines 55--56
  [][] 
  []
 
@@ -502,10 +501,10 @@ Overfull \hbox (15.03148pt too wide) in paragraph at lines 54--55
 File: g/eval-auto-results.pdf Graphic file (type pdf)
 
 <use g/eval-auto-results.pdf>
-Package pdftex.def Info: g/eval-auto-results.pdf used on input line 69.
+Package pdftex.def Info: g/eval-auto-results.pdf used on input line 70.
 (pdftex.def)             Requested size: 438.13579pt x 343.28166pt.
 
-Overfull \hbox (25.57082pt too wide) in paragraph at lines 69--70
+Overfull \hbox (25.57082pt too wide) in paragraph at lines 70--71
  [][] 
  []
 
@@ -515,17 +514,17 @@ ers/Turan/Google Drive/ED/D/git-thesis/g/eval-auto-results.pdf>]
 File: g/phrase-size-chart.png Graphic file (type png)
 
 <use g/phrase-size-chart.png>
-Package pdftex.def Info: g/phrase-size-chart.png used on input line 82.
+Package pdftex.def Info: g/phrase-size-chart.png used on input line 83.
 (pdftex.def)             Requested size: 411.4905pt x 229.00732pt.
  [40 <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/phrase-size-chart.png>] <g/
 man-eval.png, id=323, 522.45187pt x 609.02531pt>
 File: g/man-eval.png Graphic file (type png)
 
 <use g/man-eval.png>
-Package pdftex.def Info: g/man-eval.png used on input line 96.
+Package pdftex.def Info: g/man-eval.png used on input line 97.
 (pdftex.def)             Requested size: 417.96207pt x 487.2209pt.
 
-Overfull \hbox (5.3971pt too wide) in paragraph at lines 96--97
+Overfull \hbox (5.3971pt too wide) in paragraph at lines 97--98
  [][] 
  []
 
@@ -533,7 +532,7 @@ Overfull \hbox (5.3971pt too wide) in paragraph at lines 96--97
 File: g/man-eval-result.pdf Graphic file (type pdf)
 
 <use g/man-eval-result.pdf>
-Package pdftex.def Info: g/man-eval-result.pdf used on input line 108.
+Package pdftex.def Info: g/man-eval-result.pdf used on input line 109.
 (pdftex.def)             Requested size: 255.35434pt x 118.04114pt.
 )
 ("C:\Users\Turan\Google Drive\ED\D\git-thesis\chap5.tex" [41] [42 <C:/Users/Tur
@@ -544,7 +543,7 @@ Chapter 5.
 File: g/show-more-like-this.png Graphic file (type png)
 
 <use g/show-more-like-this.png>
-Package pdftex.def Info: g/show-more-like-this.png used on input line 15.
+Package pdftex.def Info: g/show-more-like-this.png used on input line 14.
 (pdftex.def)             Requested size: 341.47621pt x 184.89099pt.
  [44
 
@@ -552,10 +551,10 @@ Package pdftex.def Info: g/show-more-like-this.png used on input line 15.
 <g/button.png, id=354, 547.2947pt x 709.14937pt>
 File: g/button.png Graphic file (type png)
  <use g/button.png>
-Package pdftex.def Info: g/button.png used on input line 53.
+Package pdftex.def Info: g/button.png used on input line 52.
 (pdftex.def)             Requested size: 437.83635pt x 567.32027pt.
 
-Overfull \hbox (25.27138pt too wide) in paragraph at lines 53--54
+Overfull \hbox (25.27138pt too wide) in paragraph at lines 52--53
  [][] 
  []
 
@@ -586,7 +585,7 @@ Here is how much of TeX's memory you used:
  8492 multiletter control sequences out of 15000+200000
  62157 words of font info for 117 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 43i,6n,41p,1561b,334s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,6n,41p,1565b,334s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Fil
 es (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files (x86)/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTe
@@ -600,7 +599,7 @@ pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Prog
 ram Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX
  2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (58 pages, 683846 bytes).
+Output written on thesis.pdf (58 pages, 683931 bytes).
 PDF statistics:
  419 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
