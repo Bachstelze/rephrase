@@ -382,7 +382,7 @@ abstract class Filter:
     def Paraphrase[] filter()
 \end{verbatim}
 
-Two filters implemented by us are repeating logic of the String Distance and the Function Word partial filters. They are correspondingly named \textbf{String Distance Filter} (\textbf{\texttt{SDRF}}) and \textbf{Function Word Filter} (\texttt{\textbf{FWFF}}). The only novel filter is a score based filter and it's description is provided here:
+Two filters implemented by us are repeating logic of the String Distance, Punctuation and the Function Word partial filters. They are correspondingly named \textbf{Punctuation String Distance Filter} (\textbf{\texttt{PTRF}}) and \textbf{Function Word Filter} (\texttt{\textbf{FNRF}}). The only novel filter is a score based filter and it's description is provided here:
 
 
 \begin{flushleft}
@@ -412,7 +412,7 @@ abstract class Sorter:
 In contrast with Language Model Score Function which assesses only partial phrases, Language Model Based Sorter uses the language model score for a whole sentence by replacing user input with a paraphrasing candidate. This way paraphrase is assessed in context of the surrounding words. Items in the list are rearranged by score in descending order. 
 \bigskip
 
-\textbf{\texttt{CBDS}: \textbf{Cluster Based Diversity Sorter}} \\
+\textbf{\texttt{CDBS}: \textbf{Cluster Diversity Based Sorter}} \\
 This sorter is based on a heuristic which assumes that more diverse results are more useful for users. Indeed, a user searching for paraphrases is likely to be looking for a way to express idea in a different way, rather that trying to fix a minor spelling mistake. To achieve more contrasting results we use simple clustering approach. We group items into clusters based on word distance. The distance is calculated similarly to the string distance, considering words as atomic units instead of characters. For clustering we use an implementation of K-Means for Python available within SciPy library []. The number of clusters $K$ is set to be equal to the number of top paraphrases displayed to user. The order within each cluster is the same as in the original list. The next step after clustering is to create output list. To do so we iteratively populate an empty list, by adding the top items from each cluster. The order of clusters depends on order of their first item in the original list. This way we achieve an output where top results are significantly different from each other, but at the same time have high scores.
 \bigskip
 

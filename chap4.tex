@@ -53,8 +53,7 @@ As a result we collected 2139 test cases, that were used for evaluation. While w
 \begin{figure}
  \centering 
  \includegraphics[scale=0.75]{g/rus-sample1.pdf}
- \caption{Resulting Russian translation}
- \caption*{\textbf{a.} The original English sentence from the \texttt{newstest2012b} dataset; \textbf{b.} The result of translation into Russian; \textbf{c.} The processed Russian translation which is used as an input for Russian to English translation; \textbf{d.} The final English translation, which is different from the original English sentence as a result of current process }
+ \caption{\emph{Generating test cases}. \textbf{a.} The original English sentence from the \texttt{newstest2012b} dataset; \textbf{b.} The result of translation into Russian; \textbf{c.} The processed Russian translation which is used as an input for Russian to English translation; \textbf{d.} The final English translation, which is different from the original English sentence as a result of current process }
 \end{figure}
 
 \subsection{Results of automatic evaluation}
@@ -68,7 +67,7 @@ As we can see from results illustrated on Figure 4.2, we achieve the best perfor
 
 \begin{figure}
  \centering 
- \includegraphics[scale=0.75]{g/eval-auto-results.pdf}
+ \includegraphics[scale=0.85]{g/eval-results-2.png}
  \caption{Automatic evaluation results}
 \end{figure}
 
@@ -81,9 +80,9 @@ Using the visualisation tool we detected multiple problems associated with autom
 
 \begin{figure}
  \centering 
- \includegraphics[scale=0.6]{g/phrase-size-chart.png}
+ \includegraphics[scale=0.8]{g/phrase-size-chart.png}
  \caption{Relation between phrase size and paraphrasing performance}
- \caption*{X axis: number of words in phrase, Y axis: percentage of successful cases}
+ \caption*{White numbers inside bars are the numbers of phrases with corresponding size}
 \end{figure}
 
 
@@ -96,21 +95,23 @@ One of our goals was to make this tool easily adaptable for all paraphrasing res
 \begin{figure}
  \centering 
  \includegraphics[scale=0.8]{g/man-eval.png}
- \caption{Manual evaluation tool}
+ \caption{\emph{Screenshot of the manual evaluation tool}. This screen displays a single test, where the user has to decide whether paraphrasing options contain a good paraphrase for \texttt{became the first state}. For example, the user can select \texttt{was the first state} as a suitable paraphrase by clicking on it. This will update the sentence replacing the highlighted area with the user's selection. In order to submit final decision, the user has to click on ``Accept Selection'' button}
 \end{figure}
 
 \subsection{Manual evaluation methodology}
 
 Considering results of the automatic evaluation, we picked three out of ten tested approaches for the user study. These approaches are 1, 7 and 10. We randomly picked 50 out of our 2139 test cases, ensuring that both short and long phrases present in the final selection. We had four volunteer participants who were provided with a background information about the context of paraphrasing, they were instructed to pick a better paraphrase for selected part of sentence and to press ``Accept'', or alternatively to suggest a custom paraphrase and proceed by clicking ``Submit Custom''. 
 
-All participants were encoded by their initials in the following way: \texttt{HG}, \texttt{OM}, \texttt{NH} and \texttt{RM}. For each of the three approaches each participant submitted his decisions for the same 50 test cases. We also considered the case when user comes across a test case that he already assessed for previous approach and his desired paraphrase selection already is in top 5 for current approaches. We automatically skipped this test cases, considering them successful. 
+All participants were encoded in the following way: \texttt{A}, \texttt{B}, \texttt{C} and \texttt{D}. For each of the three approaches each participant submitted his decisions for the same 50 test cases. We also considered the case when user comes across a test case that he already assessed for previous approach and his desired paraphrase selection already is in top 5 for current approaches. We automatically skipped this test cases, considering them successful. 
 
 \begin{figure}
  \centering 
  \includegraphics[scale=0.8]{g/man-eval-result.pdf}
- \caption{Manual evaluation tool}
+ \caption{\emph{Manual evaluation results}. Here the first column is approach number, the four next columns contain number of successful test cases for each user. And finally the last column is a unified score, which considers a case to be successful if at least two of four annotators decided that the top 5 list contains a suitable paraphrase. We can see that these results correlate with results of the automatic evaluation}
 \end{figure}
 
 \subsection{Analysing manual evaluation results}
 
-Final results of the user study are provided on Figure 4.5. Here the first column is approach number, four next columns contain number of successful test cases for each user. And finally last column is a unified score, which considers case successful if at least two of four annotators decided that top 5 list contains a suitable paraphrase. We can see that these results correlate with results of automatic evaluation. Indeed, applying \emph{sign test} with $0.05$ as significance level we verified that all three approaches are significantly different and most importantly that Approach 10 is significantly better than the baseline approach.
+Final results of the user study are provided on Figure 4.5. Collecting decisions from each annotator we calculated a unified score for each approach. This score considers a test case to be successful if at least two of four annotators decided that the top 5 list contains a good paraphrase. 
+
+The results of manual evaluation correlate with the automatic evaluation results. Approach 10 is again the top scoring one. In average annotators decided that it gives a good paraphrase in 52\% (26 out of 50) of test cases. For comparison, Approach 7 is judged to be useful only in 26\% of test cases. While it is noticeably worse than the best approach it is still better than the baseline Approach 1, which provides a useful paraphrases only for 12\% of the test queries. Applying \emph{sign test} with $0.05$ as significance level we verified that all three approaches are significantly different and most importantly that Approach 10 is significantly better than the baseline approach.
