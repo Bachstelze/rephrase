@@ -46,8 +46,8 @@
 \contentsline {section}{\numberline {4.1}Automatic evaluation}{38}
 \contentsline {subsection}{\numberline {4.1.1}Generating test cases}{39}
 \contentsline {subsection}{\numberline {4.1.2}Results of automatic evaluation}{40}
-\contentsline {subsection}{\numberline {4.1.3}Analysing automatic evaluation results}{41}
-\contentsline {section}{\numberline {4.2}Manual evaluation}{44}
+\contentsline {subsection}{\numberline {4.1.3}Analysing automatic evaluation results}{42}
+\contentsline {section}{\numberline {4.2}Manual evaluation}{43}
 \contentsline {subsection}{\numberline {4.2.1}Manual evaluation methodology}{44}
 \contentsline {subsection}{\numberline {4.2.2}Analysing manual evaluation results}{46}
 \contentsline {chapter}{\numberline {5}Interactive Paraphrasing}{47}

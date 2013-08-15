@@ -310,6 +310,7 @@ Most of our partial filters aim to reduce original list of hypotheses by removin
 \textbf{\texttt{PTPF}: \textbf{Punctuation Partial Filter}} \\
 We iterate the input list and remove all punctuation and special signs for each item, also we replace multiple spaces between words with one. We remove duplicates from the resulting list and return the final list.\\
 \bigskip 
+\bigskip 
 
 \textbf{\texttt{SDPF}: \textbf{String Distance Partial Filter}} \\
 For each item in the list we calculate Levenshtein string distance between it and the following items. If the distance is below a given threshold $t$ and it has the same coverage as current item, we remove it from the list. It's important to consider that the scores in the list are already in descending order, so we leave only the best candidates in terms of score. Having same coverage makes these score comparable. For all our experiments we used $t = 3$, because intuitively assumed that filtering items with longer distance we might lose good partial paraphrasing candidates. \\
@@ -338,17 +339,22 @@ abstract class ScoreFunction:
 \begin{flushleft}
 
 \textbf{\texttt{BFSF}: \textbf{Best Forward Score Function}} \\
-This function is based on similarity with the best next translation option from the search graph. It checks if target hypothesis has the same id as \texttt{forward} reference for the source hypothesis. In this case it outputs 1. Otherwise it retrieves the best next hypothesis and calculates a string distance between it and target. If distance is more than $9$, function outputs $0$. Otherwise it the result is calculated as $1-d/10$, where $d$ is the distance. Current score function uses only the reference to the best next hypothesis (\texttt{forward}) and ignores value of \texttt{fscore}.  \\
+This function is based on similarity with the best next translation option from the search graph. It checks if target hypothesis has the same id as \texttt{forward} reference for the source hypothesis. In this case it outputs 1. Otherwise it retrieves the best next hypothesis and calculates a string distance between it and target. If distance is more than $9$, function outputs $0$. Otherwise it the result is calculated as $1-d/10$, where $d$ is the distance. Current score function uses only the reference to the best next hypothesis (\texttt{forward}) and ignores the value of the \texttt{fscore} attribute.  \\
 \bigskip
 
 \textbf{\texttt{SDSF}: \textbf{Score Difference Score Function}} \\
-This function calculates the relative difference between \texttt{transition} scores available from the search graph for source and target states. Output is a relative difference score between 0 and 1, calculated as:
+This function deals with the ratio between \texttt{transition} scores available from the search graph for source and target states. Output is a number between 0 and 1, calculated as:
 \begin{large}
 \begin{equation}
 \min(\frac{score_{t}}{2 score_{s}}, 1)
 \end{equation}
 \end{large}
-Here $score_{t}$ is the target score and $score_{s}$ is the source score. As a result the output will be higher if transition score for target state in the search graph is higher than the transition score for source state, otherwise it will be lower.
+\begin{center}
+Here $score_{t}$ is the target score and $score_{s}$ is the source score. \\
+This expression encodes an increment in transition score between two states
+\end{center}
+
+As a result the output will be higher if transition score for target state in the search graph is higher than the transition score for source state, otherwise it will be lower. The main intuition behind this score function is that if transition score encodes the positive effect of adding particular partial translation during decoding, then following the path along which this score increases should lead to an output that has a good agreement between partial paraphrases.
 \bigskip
 
 
@@ -382,7 +388,7 @@ Two filters implemented by us are repeating logic of the String Distance and the
 \begin{flushleft}
 
 \textbf{\texttt{SBRF}: \textbf{Score Based Filter}} \\
-This simple filter removes items that have a final FSM transition score which is below a predefined threshold. 
+This simple filter removes items that have a final FSM score which is below a predefined threshold. 
 The filter is used only in cases when number of results it too large to be handled by sorters. Threshold depends on number of items in the list.
 \bigskip
 
@@ -390,7 +396,7 @@ The filter is used only in cases when number of results it too large to be handl
 
 \subsubsection{Sorters}
 
-Sorters are applied to the filtered list of paraphrasing candidates. These functions aim to produce best possible final ranking for the paraphrases. They have similar interface with filters, the difference is that instead of removing items, sorters reorder them in the resulting list. Initial list passed to sorters is already sorted by FSM transition scores. The parent class for all sorters is listed below:
+Sorters are applied to the filtered list of paraphrasing candidates. These functions aim to produce best possible final ranking for the paraphrases. They have similar interface with filters, the difference is that instead of removing items, sorters reorder them in the resulting list. Sorters also have parallels with score functions as both function types try to assess quality of paraphrases. While score functions are used to test feasibility of merging two partial paraphrases, sorters are used to assess final whole paraphrasing candidates. Initial list passed to sorters is already ordered by the FSM scores. The parent class for all sorters is listed below:
 
 \begin{verbatim}
 abstract class Sorter:
@@ -403,7 +409,7 @@ abstract class Sorter:
 \begin{flushleft}
 
 \textbf{\texttt{LMBS}: \textbf{Language Model Based Sorter}} \\
-One of the differences between score functions and sorters is that sorters are applied only to a whole paraphrasing candidates. In this case in contrast with Language Model Score Function which assesses only phrases, Language Model Based Sorter uses the language model score for a whole sentence by replacing user input with a paraphrasing candidate. This way paraphrase is assessed in context of the surrounding words. Items in the list are rearranged by score in descending order. 
+In contrast with Language Model Score Function which assesses only partial phrases, Language Model Based Sorter uses the language model score for a whole sentence by replacing user input with a paraphrasing candidate. This way paraphrase is assessed in context of the surrounding words. Items in the list are rearranged by score in descending order. 
 \bigskip
 
 \textbf{\texttt{CBDS}: \textbf{Cluster Based Diversity Sorter}} \\

@@ -18,7 +18,7 @@ In order to generate the test cases, we used the Moses toolkit to translate 1000
 -Binarizer "/moses-git2/bin/processPhraseTable"
 \end{verbatim} 
 
-Then we used the generated model output (\texttt{~/secondfilter}) to translate sentences executing following command:
+Then we used the generated model output (\texttt{secondfilter}) to translate sentences executing following command:
 
 \begin{verbatim}
 /moses-git2/bin/moses.2013-01-26 -mbr -mp -search-algorithm 1 
@@ -54,6 +54,7 @@ As a result we collected 2139 test cases, that were used for evaluation. While w
  \centering 
  \includegraphics[scale=0.75]{g/rus-sample1.pdf}
  \caption{Resulting Russian translation}
+ \caption*{\textbf{a.} The original English sentence from the \texttt{newstest2012b} dataset; \textbf{b.} The result of translation into Russian; \textbf{c.} The processed Russian translation which is used as an input for Russian to English translation; \textbf{d.} The final English translation, which is different from the original English sentence as a result of current process }
 \end{figure}
 
 \subsection{Results of automatic evaluation}

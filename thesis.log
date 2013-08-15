@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.11)  15 AUG 2013 00:08
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.11)  15 AUG 2013 01:02
 entering extended mode
 **C:/Users/Turan/Google*Drive/ED/D/git-thesis/thesis.tex
 ("C:/Users/Turan/Google Drive/ED/D/git-thesis/thesis.tex"
@@ -509,47 +509,47 @@ Overfull \hbox (15.03148pt too wide) in paragraph at lines 55--56
  [][] 
  []
 
-[40] <g/eval-auto-results.pdf, id=294, 584.1825pt x 457.71pt>
+[40] [41 <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/rus-sample1.pdf>]
+<g/eval-auto-results.pdf, id=314, 584.1825pt x 457.71pt>
 File: g/eval-auto-results.pdf Graphic file (type pdf)
 
 <use g/eval-auto-results.pdf>
-Package pdftex.def Info: g/eval-auto-results.pdf used on input line 70.
+Package pdftex.def Info: g/eval-auto-results.pdf used on input line 71.
 (pdftex.def)             Requested size: 438.13579pt x 343.28166pt.
 
-Overfull \hbox (25.57082pt too wide) in paragraph at lines 70--71
+Overfull \hbox (25.57082pt too wide) in paragraph at lines 71--72
  [][] 
  []
 
-[41 <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/rus-sample1.pdf>] [42 <C:/Us
-ers/Turan/Google Drive/ED/D/git-thesis/g/eval-auto-results.pdf>]
+[42 <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/eval-auto-results.pdf>]
 <g/phrase-size-chart.png, id=329, 685.8122pt x 381.67593pt>
 File: g/phrase-size-chart.png Graphic file (type png)
 
 <use g/phrase-size-chart.png>
-Package pdftex.def Info: g/phrase-size-chart.png used on input line 83.
+Package pdftex.def Info: g/phrase-size-chart.png used on input line 84.
 (pdftex.def)             Requested size: 411.4905pt x 229.00732pt.
- [43 <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/phrase-size-chart.png>] <g/
-man-eval.png, id=335, 522.45187pt x 609.02531pt>
+ [43]
+<g/man-eval.png, id=334, 522.45187pt x 609.02531pt>
 File: g/man-eval.png Graphic file (type png)
-
-<use g/man-eval.png>
-Package pdftex.def Info: g/man-eval.png used on input line 97.
+ <use g/man-eval.png>
+Package pdftex.def Info: g/man-eval.png used on input line 98.
 (pdftex.def)             Requested size: 417.96207pt x 487.2209pt.
 
-Overfull \hbox (5.3971pt too wide) in paragraph at lines 97--98
+Overfull \hbox (5.3971pt too wide) in paragraph at lines 98--99
  [][] 
  []
 
-<g/man-eval-result.pdf, id=336, 319.1925pt x 147.55125pt>
+<g/man-eval-result.pdf, id=335, 319.1925pt x 147.55125pt>
 File: g/man-eval-result.pdf Graphic file (type pdf)
 
 <use g/man-eval-result.pdf>
-Package pdftex.def Info: g/man-eval-result.pdf used on input line 109.
+Package pdftex.def Info: g/man-eval-result.pdf used on input line 110.
 (pdftex.def)             Requested size: 255.35434pt x 118.04114pt.
 )
-("C:\Users\Turan\Google Drive\ED\D\git-thesis\chap5.tex" [44] [45 <C:/Users/Tur
-an/Google Drive/ED/D/git-thesis/g/man-eval.png> <C:/Users/Turan/Google Drive/ED
-/D/git-thesis/g/man-eval-result.pdf>] [46]
+("C:\Users\Turan\Google Drive\ED\D\git-thesis\chap5.tex" [44 <C:/Users/Turan/Go
+ogle Drive/ED/D/git-thesis/g/phrase-size-chart.png>] [45 <C:/Users/Turan/Google
+ Drive/ED/D/git-thesis/g/man-eval.png> <C:/Users/Turan/Google Drive/ED/D/git-th
+esis/g/man-eval-result.pdf>] [46]
 Chapter 5.
 <g/show-more-like-this.png, id=357, 426.84468pt x 231.11343pt>
 File: g/show-more-like-this.png Graphic file (type png)
@@ -611,7 +611,7 @@ pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Prog
 ram Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX
  2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (61 pages, 719594 bytes).
+Output written on thesis.pdf (61 pages, 720264 bytes).
 PDF statistics:
  431 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
