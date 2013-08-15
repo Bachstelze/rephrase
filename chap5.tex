@@ -1,7 +1,7 @@
 
 \chapter{Interactive Paraphrasing}
 
-Earlier we highlighted that during current project we considered paraphrasing as an interactive process. We considered interests of the end user by ensuring a real-time performance as well as by focusing on ranking for top paraphrasing candidates. In this chapter we introduce further work in this direction carried out by us during the project. We tweaked our interactive evaluation tool by adding UI elements that could be used to provide quick feedback on results. This feedback is instantly handled by our system in order to produce improved results. We also modified our automatic evaluation system in order to assess usability of this new feature.
+Earlier we highlighted that during the current project we considered paraphrasing as an interactive process. We considered interests of the end user by ensuring a real-time performance as well as by focusing on ranking for top paraphrasing candidates. In this chapter we introduce further work in this direction carried out by us during the project. We tweaked our interactive evaluation tool by adding UI elements that could be used to provide quick feedback on results. This feedback is instantly handled by our system in order to produce improved results. We also modified our automatic evaluation system in order to assess usability of this new feature.
 
 \section{Handling user feedback}
 
@@ -17,25 +17,25 @@ Inspired by relevance feedback concept from Information Retrieval field, we adde
 
 To implement this feature on the server-side, we simply developed a new sorter function, named \textbf{User Feedback Based Sorter} (\texttt{\textbf{UFBS}}). This sorter reorders final paraphrasing options list using string distance and word distance features as the primary and secondary weight functions. As a result, top items of the final are the most similar ones to the phrase specified in user feedback. 
 
-In current implementation we re-run original query to retrieve the paraphrases list for feedback based sorting. However it's possible to implement this functionality in a more efficient way by saving results in cache, reusing them when user provides feedback. 
+In current implementation we re-run original query to retrieve the paraphrases list for feedback based sorting. However it is possible to implement this functionality in a more efficient way by saving results in cache, reusing them when user provides feedback. 
 
 \section{Evaluation}
 
 We modified our automatic evaluation process, by considering not only the original top results, but also results retrieved by providing each of the original paraphrasing option as user feedback. This way the number of potential paraphrasing candidates dramatically increased. For our baseline approach we got \textbf{501} out of 2139 matches with desired paraphrase. Our best performing approach scored \textbf{847} out of 2139 test cases. For comparison, without feedback handling feature these numbers are correspondingly \textbf{135} out of 2139 for the baseline approach and \textbf{691} out of 2139 for the best approach.
 
-However, the automatic evaluation considers that user will always provide useful feedback, which is not a realistic assumption. To test feasibility of the new feature, we carried out another small user study. Two participants were marking 30 same test cases using an updated version of our interactive evaluation tool. For baseline approach we got \textbf{11} cases in which at least one user found the desired paraphrase and \textbf{6} cases where both users found a suitable option. For the best approach these numbers are correspondingly \textbf{23} and \textbf{18}. Sign test confirmed significance of these results. Considering this outcome and comments from the users, we conclude that the user feedback feature is really helpful in context of paraphrasing task.
+However, the automatic evaluation considers that user will always provide useful feedback, which is not a realistic assumption. To test feasibility of the new feature, we carried out another small user study. Two participants were marking 30 same test cases using an updated version of our interactive evaluation tool. For baseline approach we got \textbf{11} cases in which at least one user found the desired paraphrase and \textbf{6} cases where both users found a suitable option. For the best approach these numbers are correspondingly \textbf{23} and \textbf{18}. Sign test confirmed significance of these results. Considering this outcome and comments from the users, we conclude that the user feedback feature is really helpful in context of the  paraphrasing task.
 
 \section{Specified paraphrasing requests}
 
 Analysing the situations in which translator may want to use our paraphrasing tool, we found three core use cases:
 
 \begin{itemize}
-    \item User tries to find better wording for translation and wants to explore all options that express same meaning
-    \item User expects to get a fixed version of an erroneous part in the translation
-    \item User is not familiar with source language and machine translation does not seem to be good. Paraphrasing is used to understand what the selected part of translation means  
+    \item The user tries to find a better wording for a translation and wants to explore all options that express the same meaning
+    \item The user expects to get a fixed version of an erroneous part in the translation
+    \item The user is not familiar with the source language and the machine translation does not seem to be good. Paraphrasing is used to understand what the selected part of translation means  
 \end{itemize}
 
-Furthermore, investigating each case in detail, we noticed that there are some other special cases when paraphrasing could be useful including:
+Furthermore, investigating each case in detail, we noticed that there are some other special cases when paraphrasing could be useful, including:
 
 \begin{itemize}
     \item Paraphrasing could be used to expand or collapse abbreviations. As we consider context of translation during paraphrasing this might be useful to find out correct meaning of a given abbreviation.

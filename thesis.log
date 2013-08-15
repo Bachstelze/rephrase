@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.11)  15 AUG 2013 12:49
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.11)  15 AUG 2013 14:27
 entering extended mode
 **C:/Users/Turan/Google*Drive/ED/D/git-thesis/thesis.tex
 ("C:/Users/Turan/Google Drive/ED/D/git-thesis/thesis.tex"
@@ -371,19 +371,18 @@ LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
 (Font)              scaled to size 12.9599pt on input line 10.
 [3
 
-] [4] [5] [6]
+] [4] [5] [6] [7]
 Overfull \hbox (2.49896pt too wide) in paragraph at lines 79--80
 \OT1/ptm/m/n/12 Close ties be-tween para-phras-ing and trans-la-tion were stud-
 ied by Callison-Burch (2007).
  []
 
-[7]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 86.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 86.
- [8] [9] [10] [11]
-<g/translation-options.pdf, id=68, 440.64626pt x 188.705pt>
+[8] [9] [10] [11] [12]
+<g/translation-options.pdf, id=71, 440.64626pt x 188.705pt>
 File: g/translation-options.pdf Graphic file (type pdf)
 
 <use g/translation-options.pdf>
@@ -394,7 +393,7 @@ Overfull \hbox (28.0802pt too wide) in paragraph at lines 178--179
  [][] 
  []
 
-[12] <g/decoding-step5.pdf, id=72, 439.6425pt x 258.9675pt>
+<g/decoding-step5.pdf, id=72, 439.6425pt x 258.9675pt>
 File: g/decoding-step5.pdf Graphic file (type pdf)
 
 <use g/decoding-step5.pdf>
@@ -419,21 +418,27 @@ File: g/recombination-example2.pdf Graphic file (type pdf)
 <use g/recombination-example2.pdf>
 Package pdftex.def Info: g/recombination-example2.pdf used on input line 206.
 (pdftex.def)             Requested size: 242.90689pt x 86.32227pt.
- [14 <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/decoding-step5.pdf> <C:/Use
-rs/Turan/Google Drive/ED/D/git-thesis/g/recombination-example1.pdf>]) ("C:\User
-s\Turan\Google Drive\ED\D\git-thesis\chap3.tex" [15 <C:/Users/Turan/Google Driv
-e/ED/D/git-thesis/g/recombination-example2.pdf>]
+ [14 <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/decoding-step5.pdf>])
+("C:\Users\Turan\Google Drive\ED\D\git-thesis\chap3.tex" [15 <C:/Users/Turan/Go
+ogle Drive/ED/D/git-thesis/g/recombination-example1.pdf> <C:/Users/Turan/Google
+ Drive/ED/D/git-thesis/g/recombination-example2.pdf>]
 Chapter 3.
 [16
 
-] [17] [18] [19] <g/system-outline.pdf, id=157, 491.8375pt x 282.05376pt>
+]
+Overfull \hbox (0.90073pt too wide) in paragraph at lines 19--20
+[]\OT1/ptm/m/n/12 We also took into ac-count the find-ings pre-sented in Simard
+ and Macklovitch (2005),
+ []
+
+[17] [18] [19] <g/system-outline.pdf, id=157, 491.8375pt x 282.05376pt>
 File: g/system-outline.pdf Graphic file (type pdf)
 
 <use g/system-outline.pdf>
-Package pdftex.def Info: g/system-outline.pdf used on input line 76.
+Package pdftex.def Info: g/system-outline.pdf used on input line 74.
 (pdftex.def)             Requested size: 491.83629pt x 282.05305pt.
 
-Overfull \hbox (79.27132pt too wide) in paragraph at lines 76--77
+Overfull \hbox (79.27132pt too wide) in paragraph at lines 74--75
  [][] 
  []
 
@@ -441,47 +446,47 @@ Overfull \hbox (79.27132pt too wide) in paragraph at lines 76--77
 <g/screenshot.png, id=172, 812.28468pt x 714.41907pt>
 File: g/screenshot.png Graphic file (type png)
  <use g/screenshot.png>
-Package pdftex.def Info: g/screenshot.png used on input line 86.
+Package pdftex.def Info: g/screenshot.png used on input line 84.
 (pdftex.def)             Requested size: 406.14134pt x 357.20866pt.
 
 [21 <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/screenshot.png>] [22]
 [23] [24] [25] [26]
-Overfull \hbox (9.71364pt too wide) in paragraph at lines 232--233
+Overfull \hbox (9.71364pt too wide) in paragraph at lines 230--231
 \OT1/pcr/m/n/12 sentenceId, hyp, stack, back, score, transition, recombined, fo
 rward,
  []
 
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 237.
+(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 235.
 
 [27] [28] <g/coverage-expansion.pdf, id=200, 343.2825pt x 194.7275pt>
 File: g/coverage-expansion.pdf Graphic file (type pdf)
 
 <use g/coverage-expansion.pdf>
-Package pdftex.def Info: g/coverage-expansion.pdf used on input line 258.
+Package pdftex.def Info: g/coverage-expansion.pdf used on input line 256.
 (pdftex.def)             Requested size: 343.28165pt x 194.727pt.
  [29 <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/coverage-expansion.pdf>] <g
 /fsm.pdf, id=229, 409.53pt x 203.76125pt>
 File: g/fsm.pdf Graphic file (type pdf)
 
 <use g/fsm.pdf>
-Package pdftex.def Info: g/fsm.pdf used on input line 272.
+Package pdftex.def Info: g/fsm.pdf used on input line 270.
 (pdftex.def)             Requested size: 409.52899pt x 203.76074pt.
  [30] <g/main-workflow.png, id=233, 542.025pt x 736.25063pt>
 File: g/main-workflow.png Graphic file (type png)
 
 <use g/main-workflow.png>
-Package pdftex.def Info: g/main-workflow.png used on input line 284.
+Package pdftex.def Info: g/main-workflow.png used on input line 282.
 (pdftex.def)             Requested size: 444.46336pt x 603.72942pt.
 
-Overfull \hbox (31.89839pt too wide) in paragraph at lines 284--285
+Overfull \hbox (31.89839pt too wide) in paragraph at lines 282--283
  [][] 
  []
 
 [31 <C:/Users/Turan/Google Drive/ED/D/git-thesis/g/fsm.pdf>] [32 <C:/Users/Tura
 n/Google Drive/ED/D/git-thesis/g/main-workflow.png>]
 LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 310.
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 308.
  [33] [34] [35] [36])
 ("C:\Users\Turan\Google Drive\ED\D\git-thesis\chap4.tex" [37]
 Chapter 4.
@@ -592,7 +597,7 @@ No file appendix1.tex.
 Here is how much of TeX's memory you used:
  5347 strings out of 494045
  80570 string characters out of 3145968
- 140597 words of memory out of 3000000
+ 139597 words of memory out of 3000000
  8496 multiletter control sequences out of 15000+200000
  64431 words of font info for 122 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
@@ -610,7 +615,7 @@ pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Prog
 ram Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX
  2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (62 pages, 755310 bytes).
+Output written on thesis.pdf (62 pages, 755339 bytes).
 PDF statistics:
  425 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

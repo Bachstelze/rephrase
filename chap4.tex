@@ -1,7 +1,7 @@
 
 \chapter{Evaluation}
 
-In this chapter we provide detailed description of the evaluation process that we carried out for testing multiple versions of our paraphrasing approach. Considering the modular design of our paraphraser it was possible to design several experiments by adding and removing specific functionality. In scope of this project we were mainly interested in evaluating usefulness of paraphrasing options provided by our tool in context of a translation task. It was not feasible to set up user studies at early stage of the project, because there were too many versions to test. Considering that we designed an automatic evaluation system that helped us to find the most promising versions and also highlighted various issues and interesting features about our tool. We will begin this chapter by describing this automatic evaluation process. At the final stage of project we also carried out a small user study. We will show how results of this study supported our previous findings. Describing each evaluation stage we will also provide analysis and interpretation of the results.
+In this chapter we provide detailed description of the evaluation that we carried out for testing multiple versions of our paraphrasing approach. Considering the modular design of our paraphraser it was possible to design several experiments by adding and removing specific functionality. In scope of this project we were mainly interested in evaluating usefulness of paraphrasing options provided by our tool in context of a translation task. It was not feasible to set up user studies at early stage of the project, because there were too many versions to test. Considering that we designed an automatic evaluation system that helped us to find the most promising versions and also highlighted various issues and interesting features about our tool. We will begin this chapter by describing this automatic evaluation process. At the final stage of project we also carried out a small user study. We will show how results of this study supported our previous findings. Describing each evaluation stage we will also provide analysis and interpretation of the results.
 
 \section{Automatic evaluation}
 
@@ -27,7 +27,7 @@ Then we used the generated model output (\texttt{secondfilter}) to translate sen
 < /fs/vali1/wmt13-en-ru/evaluation/newstest2013.input.lc.1 > ~/rus_out_1
 \end{verbatim} 
 
-Figure 4.1 illustrates sample original English sentence (a) and it's Russian translation (b). We used a simple Python script to remove coverage information from the results in order to use it as input for Russian - English translation, sample result is illustrated on Figure 4.1 (c). Following command was used to build Russian to English translation model:
+Figure 4.1 illustrates sample original English sentence (a) and its Russian translation (b). We used a simple Python script to remove coverage information from the results in order to use it as input for Russian - English translation, sample result is illustrated on Figure 4.1 (c). Following command was used to build Russian to English translation model:
 
 \begin{verbatim}
 /moses-git2/scripts/training/filter-model-given-input.pl 
@@ -102,7 +102,7 @@ One of our goals was to make this tool easily adaptable for all paraphrasing res
 
 Considering results of the automatic evaluation, we picked three out of ten tested approaches for the user study. These approaches are 1, 7 and 10. We randomly picked 50 out of our 2139 test cases, ensuring that both short and long phrases present in the final selection. We had four volunteer participants who were provided with a background information about the context of paraphrasing, they were instructed to pick a better paraphrase for selected part of sentence and to press ``Accept'', or alternatively to suggest a custom paraphrase and proceed by clicking ``Submit Custom''. 
 
-All participants were encoded in the following way: \texttt{A}, \texttt{B}, \texttt{C} and \texttt{D}. For each of the three approaches each participant submitted his decisions for the same 50 test cases. We also considered the case when user comes across a test case that he already assessed for previous approach and his desired paraphrase selection already is in top 5 for current approaches. We automatically skipped this test cases, considering them successful. 
+All participants were encoded in the following way: \texttt{A}, \texttt{B}, \texttt{C} and \texttt{D}. For each of the three approaches each participant submitted his decisions for the same 50 test cases. We also considered the case when a user comes across a test case that he already assessed for a previous approach and his desired paraphrase selection already is in top 5 for current approaches. We automatically skipped this test cases, considering them successful. 
 
 \begin{figure}
  \centering 
