@@ -201,7 +201,7 @@ Finally considering the following independence $P(w_{1}^{n}|s_{1}^{n}) = \prod_{
 Probability $P(w_{i}|s_{i})$ from the last equation is known as \emph{sensor model} and probability $P(s_{i}|s_{i-1})$ is known as \emph{transition model}.
 \end{center}
 
-In our alignment case the sensor model is calculated using string edit distance between an observation and the states. The transition model calculation is based on the sequence of words in user input. For our example, probability of the first $w_{2}$ and second $w_{5}$ occurrences of \texttt{us} are calculated as: 
+In our alignment case the sensor model is calculated using string edit distance between an observation and the states. The transition model calculation is based on the sequence of words in user input. For our example, the probabilities of the first $w_{2}$ and second $w_{5}$ occurrences of \texttt{us} are calculated as: 
 
 \begin{large}
 \begin{equation}
@@ -209,7 +209,7 @@ P(us|w_{2}) = P(w_{2}|us) P(us|none)
 \end{equation}
 \end{large}
 \begin{center}
-Here we use $P(us|none)$, because we assume that the first word ``the'' was not matched with any of the input words and thus it is tagged as ``none''.
+Here we use $P(us|none)$, because we assume that the first word ``the'' was not matched with any of the input words and thus it was tagged as ``none''.
 \end{center}
 
 \begin{large}
@@ -223,7 +223,7 @@ Here we use $P(us|told)$, because we assume that the fourth word ``told'' was ta
 
 Here $P(w_{i}|us)$ expresses probability of that $w_{i}$ corresponds to \texttt{us} from selection. And $P(us|s_{j})$ is probability that current word corresponds to \texttt{us}, given that previous word corresponds to $s_{j}$. Considering the input sequence \texttt{told us that war}, the second probability is higher.
 
-In cases when user edits are significant, the described approach will tag all words in translation output as ``none''. In these situations, one option is to use a word aligner like GIZA++ to re-align user's current translation with original sentence and use updated coverage information. Another option is to ignore coverage and to switch to a monolingual paraphrasing, this type of paraphrasing is not supported by our approach. Our paraphrasing approach requires the user input to be a partial translation of original sentence. This requirement lets us to use search graph as data source for paraphrasing. Unfortunately, this constraint also does not let our paraphrasing approach to be used outside translation task.
+In cases when user edits are significant, the described approach will tag all words in translation output as ``none''. In these situations, one option is to use a word aligner like Giza++ to re-align user's current translation with original sentence and use updated coverage information. Another option is to ignore coverage and to switch to a monolingual paraphrasing, this type of paraphrasing is not supported by our approach. Our paraphrasing approach requires the user input to be a partial translation of original sentence. This requirement lets us to use search graph as data source for paraphrasing. Unfortunately, this constraint also does not let our paraphrasing approach to be used outside translation task.
 
 Source code of both regular and fuzzy alignment implementations are available in project file named \textsf{aligner.py}. 
 
@@ -317,7 +317,7 @@ For each item in the list we calculate Levenshtein string distance between it an
 \bigskip 
 
 \textbf{\texttt{FWPF}: \textbf{Function Word Partial Filter}} \\
-For each item we remove following items if the only difference between two strings is in function words. This way in the resulting list there are still function words. In this filter we use list of functions words available within NLTK library []. \\
+For each item we remove following items if the only difference between two strings is in function words. This way in the resulting list there are still function words. In this filter we use list of functions words available within NLTK library. \\
 \bigskip 
 
 \end{flushleft} 
@@ -413,7 +413,7 @@ In contrast with Language Model Score Function which assesses only partial phras
 \bigskip
 
 \textbf{\texttt{CDBS}: \textbf{Cluster Diversity Based Sorter}} \\
-This sorter is based on a heuristic which assumes that more diverse results are more useful for users. Indeed, a user searching for paraphrases is likely to be looking for a way to express idea in a different way, rather that trying to fix a minor spelling mistake. To achieve more contrasting results we use simple clustering approach. We group items into clusters based on word distance. The distance is calculated similarly to the string distance, considering words as atomic units instead of characters. For clustering we use an implementation of K-Means for Python available within SciPy library []. The number of clusters $K$ is set to be equal to the number of top paraphrases displayed to user. The order within each cluster is the same as in the original list. The next step after clustering is to create output list. To do so we iteratively populate an empty list, by adding the top items from each cluster. The order of clusters depends on order of their first item in the original list. This way we achieve an output where top results are significantly different from each other, but at the same time have high scores.
+This sorter is based on a heuristic which assumes that more diverse results are more useful for users. Indeed, a user searching for paraphrases is likely to be looking for a way to express idea in a different way, rather that trying to fix a minor spelling mistake. To achieve more contrasting results we use simple clustering approach. We group items into clusters based on word distance. The distance is calculated similarly to the string distance, considering words as atomic units instead of characters. For clustering we use an implementation of K-Means for Python available within SciPy library. The number of clusters $K$ is set to be equal to the number of top paraphrases displayed to user. The order within each cluster is the same as in the original list. The next step after clustering is to create output list. To do so we iteratively populate an empty list, by adding the top items from each cluster. The order of clusters depends on order of their first item in the original list. This way we achieve an output where top results are significantly different from each other, but at the same time have high scores.
 \bigskip
 
 \end{flushleft}
