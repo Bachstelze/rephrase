@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.11)  15 AUG 2013 14:27
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.11)  15 AUG 2013 15:50
 entering extended mode
 **C:/Users/Turan/Google*Drive/ED/D/git-thesis/thesis.tex
 ("C:/Users/Turan/Google Drive/ED/D/git-thesis/thesis.tex"
@@ -212,24 +212,24 @@ File: babel.def 2008/07/08 v3.8m Babel common definitions
 ))
 ("C:\Users\Turan\Google Drive\ED\D\git-thesis\thesis.aux"
 ("C:\Users\Turan\Google Drive\ED\D\git-thesis\appendix1.aux"))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 18.
-LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 18
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 27.
+LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 27
 .
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\omspzccm.fd"
 File: omspzccm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/pzccm.
 )
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -284,40 +284,40 @@ Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count109
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 22.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <20.74> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 22.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 31.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 18.66588pt on input line 22.
+(Font)              scaled to size 18.66588pt on input line 31.
  <eushield-twocolour.pdf, id=1, 369.38pt x 373.395pt>
 File: eushield-twocolour.pdf Graphic file (type pdf)
 
 <use eushield-twocolour.pdf>
-Package pdftex.def Info: eushield-twocolour.pdf used on input line 22.
+Package pdftex.def Info: eushield-twocolour.pdf used on input line 31.
 (pdftex.def)             Requested size: 369.37909pt x 373.39409pt.
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/Turan/Google Dri
 ve/ED/D/git-thesis/eushield-twocolour.pdf>]
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
-(Font)              scaled to size 10.79993pt on input line 22.
+(Font)              scaled to size 10.79993pt on input line 31.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 22.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 31.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 22.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 22.
+(Font)              scaled to size 10.79993pt on input line 31.
 
 [1
 
 ] [2] [3]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 43.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <24.88> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 32.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 43.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 22.39185pt on input line 32.
+(Font)              scaled to size 22.39185pt on input line 43.
  ("C:\Users\Turan\Google Drive\ED\D\git-thesis\thesis.toc"
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
 LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 3.
 
 
@@ -597,7 +597,7 @@ No file appendix1.tex.
 Here is how much of TeX's memory you used:
  5347 strings out of 494045
  80570 string characters out of 3145968
- 139597 words of memory out of 3000000
+ 141841 words of memory out of 3000000
  8496 multiletter control sequences out of 15000+200000
  64431 words of font info for 122 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
@@ -615,7 +615,7 @@ pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Prog
 ram Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX
  2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (62 pages, 755339 bytes).
+Output written on thesis.pdf (62 pages, 756132 bytes).
 PDF statistics:
  425 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
